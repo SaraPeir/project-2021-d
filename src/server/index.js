@@ -12,12 +12,14 @@ import mongoose from 'mongoose'
 
 const fetch = require('node-fetch');
 const app = express(); 
+require('custom-env').env()
 
 app.use(express.static('assets'));
 
-const psw = 'MqDROlzoW6QKeMrr'
 const databaseName = 'sample_todo'
-const uri = `mongodb+srv://sarapeir:${psw}@cluster0.r4gtu.mongodb.net/${databaseName}?retryWrites=true&w=majority`;
+const psw = process.env.DB_PASS
+const user = process.env.DB_USER
+const uri = `mongodb+srv://${user}:${psw}@cluster0.r4gtu.mongodb.net/${databaseName}?retryWrites=true&w=majority`;
 const options = {useNewUrlParser: true, useUnifiedTopology: true}
 
 mongoose.connect(uri, options)
