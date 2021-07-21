@@ -2,6 +2,9 @@
     "presets": ["@babel/preset-env", "@babel/preset-react"],
     "plugins": [
         "@babel/plugin-syntax-dynamic-import",
-        "@loadable/babel-plugin"
+        "@loadable/babel-plugin",
+        "@babel/plugin-transform-runtime"
       ]
 }
+
+// plugin-tranform-time used to support async functions used by graphql: https://stackoverflow.com/questions/61755999/uncaught-referenceerror-regeneratorruntime-is-not-defined-in-react

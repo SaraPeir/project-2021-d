@@ -5,11 +5,33 @@ import App from '../client/App';
 import serialize from "serialize-javascript";
 import path from 'path';
 import { ChunkExtractor } from '@loadable/server'
+import { graphqlHTTP } from 'express-graphql'
+import graphqlSchema from './data/schema'
+import graphqlResolvers from './data/resolvers'
+import mongoose from 'mongoose'
 
 const fetch = require('node-fetch');
 const app = express(); 
 
 app.use(express.static('assets'));
+
+const psw = 'MqDROlzoW6QKeMrr'
+const databaseName = 'sample_todo'
+const uri = `mongodb+srv://sarapeir:${psw}@cluster0.r4gtu.mongodb.net/${databaseName}?retryWrites=true&w=majority`;
+const options = {useNewUrlParser: true, useUnifiedTopology: true}
+
+mongoose.connect(uri, options)
+.then(() => app.listen(4000, console.log('Server is running')))
+.catch(error => { throw error })
+
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    schema: graphqlSchema,
+    rootValue: graphqlResolvers,
+    graphiql: true,
+  })
+)
 
 app.get("*", (req, res, next) => {
     const emptyArray = [];
