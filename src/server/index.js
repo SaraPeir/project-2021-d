@@ -13,7 +13,6 @@ import mongoose from 'mongoose'
 const fetch = require('node-fetch');
 const app = express(); 
 require('dotenv').config()
-// require('custom-env').env()
 
 app.use(express.static('assets'));
 
