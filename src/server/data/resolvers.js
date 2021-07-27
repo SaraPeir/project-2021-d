@@ -45,5 +45,16 @@ export default {
       throw error
     }
   },
+
+  deleteTask: async args => {
+    try {
+      const { id } = args
+      const taskToDelete = await Task.findOneAndDelete({_id: id});
+
+      return taskToDelete
+    } catch (error) {
+      throw error
+    }
+  },
 }
 

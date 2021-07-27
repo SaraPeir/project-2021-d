@@ -5,6 +5,7 @@ const {LoaderOptionsPlugin} = require('webpack')
 const miniCssExtractPlugin = require('mini-css-extract-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const LoadablePlugin = require('@loadable/webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const devMode = process.env.NODE_ENV !== 'production';
 
@@ -41,7 +42,7 @@ const browserConfig = {
       },
     ]
   },
-  plugins: [new LoadablePlugin(), loaderOptionPlugin, bundleAnalyzerPlugin],
+  plugins: [new LoadablePlugin(), loaderOptionPlugin, bundleAnalyzerPlugin, new Dotenv()],
   optimization: {
     moduleIds: 'named',
     runtimeChunk: {

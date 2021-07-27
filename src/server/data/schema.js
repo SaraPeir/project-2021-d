@@ -20,6 +20,7 @@ export default buildSchema(`
   type Mutation {
     createTask(task:TaskInput): Task
     editTask(id: ID): Task
+    deleteTask(id: ID): Task
   }
 
   schema {

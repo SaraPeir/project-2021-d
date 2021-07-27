@@ -12,7 +12,8 @@ import mongoose from 'mongoose'
 
 const fetch = require('node-fetch');
 const app = express(); 
-require('custom-env').env()
+require('dotenv').config()
+// require('custom-env').env()
 
 app.use(express.static('assets'));
 
@@ -21,6 +22,7 @@ const psw = process.env.DB_PASS
 const user = process.env.DB_USER
 const uri = `mongodb+srv://${user}:${psw}@cluster0.r4gtu.mongodb.net/${databaseName}?retryWrites=true&w=majority`;
 const options = {useNewUrlParser: true, useUnifiedTopology: true}
+console.log('URI', uri)
 
 mongoose.connect(uri, options)
 .then(() => app.listen(4000, console.log('Server is running')))
