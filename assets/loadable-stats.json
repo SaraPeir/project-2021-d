@@ -1,25 +1,25 @@
 {
-  "hash": "f25a3731bf9828692d1c",
+  "hash": "b531d0b00d0c45ce806f",
   "publicPath": "/",
   "outputPath": "C:\\Users\\Sara\\Desktop\\project-2021-d\\assets",
   "assetsByChunkName": {
     "main": [
-      "main.b0f23a3315068d97b2e6.js"
+      "main.f8861015cc6968a2be0b.js"
     ],
     "manifest": [
-      "manifest.172fcfe6ede84f5d33a1.js"
+      "manifest.0a83879810f3d4d366fe.js"
     ],
     "current_time": [
       "current_time.c221602a69ee1e9ec0c7.js"
     ],
     "tasks": [
-      "tasks.c5517324035fc6496c9e.js"
+      "tasks.0ac90ab6713f70aa2491.js"
     ],
     "async_countdown": [
       "async_countdown.e33fefa6f93759a13cd6.js"
     ],
     "node_vendors": [
-      "node_vendors.be714688be09d66e14de.js"
+      "node_vendors.68cd14cb6565cf65c04c.js"
     ],
     "shared_vendors": [
       "shared_vendors.c2b55e0e64fe6ccbe679.js"
@@ -30,7 +30,7 @@
       "type": "assets by status",
       "cached": true,
       "filteredChildren": 7,
-      "size": 1799520
+      "size": 1808728
     }
   ],
   "namedChunkGroups": {
@@ -43,13 +43,13 @@
       ],
       "assets": [
         {
-          "name": "manifest.172fcfe6ede84f5d33a1.js"
+          "name": "manifest.0a83879810f3d4d366fe.js"
         },
         {
-          "name": "node_vendors.be714688be09d66e14de.js"
+          "name": "node_vendors.68cd14cb6565cf65c04c.js"
         },
         {
-          "name": "main.b0f23a3315068d97b2e6.js"
+          "name": "main.f8861015cc6968a2be0b.js"
         }
       ],
       "filteredAssets": 0,
@@ -68,7 +68,7 @@
       ],
       "assets": [
         {
-          "name": "node_vendors.be714688be09d66e14de.js"
+          "name": "node_vendors.68cd14cb6565cf65c04c.js"
         },
         {
           "name": "shared_vendors.c2b55e0e64fe6ccbe679.js"
@@ -87,16 +87,20 @@
     "tasks": {
       "name": "tasks",
       "chunks": [
+        "node_vendors",
         "tasks"
       ],
       "assets": [
         {
-          "name": "tasks.c5517324035fc6496c9e.js"
+          "name": "node_vendors.68cd14cb6565cf65c04c.js"
+        },
+        {
+          "name": "tasks.0ac90ab6713f70aa2491.js"
         }
       ],
       "filteredAssets": 0,
       "assetsSize": null,
-      "filteredAuxiliaryAssets": 1,
+      "filteredAuxiliaryAssets": 2,
       "auxiliaryAssetsSize": null,
       "children": {},
       "childAssets": {}
@@ -110,7 +114,7 @@
       ],
       "assets": [
         {
-          "name": "node_vendors.be714688be09d66e14de.js"
+          "name": "node_vendors.68cd14cb6565cf65c04c.js"
         },
         {
           "name": "shared_vendors.c2b55e0e64fe6ccbe679.js"
@@ -132,13 +136,13 @@
     {
       "id": "main",
       "files": [
-        "main.b0f23a3315068d97b2e6.js"
+        "main.f8861015cc6968a2be0b.js"
       ]
     },
     {
       "id": "manifest",
       "files": [
-        "manifest.172fcfe6ede84f5d33a1.js"
+        "manifest.0a83879810f3d4d366fe.js"
       ]
     },
     {
@@ -150,7 +154,7 @@
     {
       "id": "tasks",
       "files": [
-        "tasks.c5517324035fc6496c9e.js"
+        "tasks.0ac90ab6713f70aa2491.js"
       ]
     },
     {
@@ -162,7 +166,7 @@
     {
       "id": "node_vendors",
       "files": [
-        "node_vendors.be714688be09d66e14de.js"
+        "node_vendors.68cd14cb6565cf65c04c.js"
       ]
     },
     {
