@@ -9,12 +9,16 @@ import { graphqlHTTP } from 'express-graphql'
 import graphqlSchema from './data/schema'
 import graphqlResolvers from './data/resolvers'
 import mongoose from 'mongoose'
+import cors from 'cors'
 
 const fetch = require('node-fetch');
 const app = express(); 
 require('dotenv').config()
 
 app.use(express.static('assets'));
+
+// to allow requests to domains different than localhost:3000
+app.use(cors())
 
 const databaseName = 'sample_todo'
 const psw = process.env.DB_PASS
@@ -24,7 +28,7 @@ const options = {useNewUrlParser: true, useUnifiedTopology: true}
 console.log('URI', uri)
 
 mongoose.connect(uri, options)
-.then(() => app.listen(4000, console.log('Server is running')))
+.then(() => app.listen(4000, console.log('Server is running for GRAPHQL')))
 .catch(error => { throw error })
 
 app.use(

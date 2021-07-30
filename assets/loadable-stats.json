@@ -1,22 +1,25 @@
 {
-  "hash": "7d0cbbaf72cba66f8a7c",
+  "hash": "f25a3731bf9828692d1c",
   "publicPath": "/",
   "outputPath": "C:\\Users\\Sara\\Desktop\\project-2021-d\\assets",
   "assetsByChunkName": {
     "main": [
-      "main.da37af9707791c33d997.js"
+      "main.b0f23a3315068d97b2e6.js"
     ],
     "manifest": [
-      "manifest.4629c1ab66943f0d75f1.js"
+      "manifest.172fcfe6ede84f5d33a1.js"
     ],
     "current_time": [
       "current_time.c221602a69ee1e9ec0c7.js"
+    ],
+    "tasks": [
+      "tasks.c5517324035fc6496c9e.js"
     ],
     "async_countdown": [
       "async_countdown.e33fefa6f93759a13cd6.js"
     ],
     "node_vendors": [
-      "node_vendors.0445424c8c17169ce4f2.js"
+      "node_vendors.be714688be09d66e14de.js"
     ],
     "shared_vendors": [
       "shared_vendors.c2b55e0e64fe6ccbe679.js"
@@ -26,8 +29,8 @@
     {
       "type": "assets by status",
       "cached": true,
-      "filteredChildren": 6,
-      "size": 1182616
+      "filteredChildren": 7,
+      "size": 1799520
     }
   ],
   "namedChunkGroups": {
@@ -40,13 +43,13 @@
       ],
       "assets": [
         {
-          "name": "manifest.4629c1ab66943f0d75f1.js"
+          "name": "manifest.172fcfe6ede84f5d33a1.js"
         },
         {
-          "name": "node_vendors.0445424c8c17169ce4f2.js"
+          "name": "node_vendors.be714688be09d66e14de.js"
         },
         {
-          "name": "main.da37af9707791c33d997.js"
+          "name": "main.b0f23a3315068d97b2e6.js"
         }
       ],
       "filteredAssets": 0,
@@ -65,7 +68,7 @@
       ],
       "assets": [
         {
-          "name": "node_vendors.0445424c8c17169ce4f2.js"
+          "name": "node_vendors.be714688be09d66e14de.js"
         },
         {
           "name": "shared_vendors.c2b55e0e64fe6ccbe679.js"
@@ -81,6 +84,23 @@
       "children": {},
       "childAssets": {}
     },
+    "tasks": {
+      "name": "tasks",
+      "chunks": [
+        "tasks"
+      ],
+      "assets": [
+        {
+          "name": "tasks.c5517324035fc6496c9e.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 1,
+      "auxiliaryAssetsSize": null,
+      "children": {},
+      "childAssets": {}
+    },
     "async_countdown": {
       "name": "async_countdown",
       "chunks": [
@@ -90,7 +110,7 @@
       ],
       "assets": [
         {
-          "name": "node_vendors.0445424c8c17169ce4f2.js"
+          "name": "node_vendors.be714688be09d66e14de.js"
         },
         {
           "name": "shared_vendors.c2b55e0e64fe6ccbe679.js"
@@ -112,19 +132,25 @@
     {
       "id": "main",
       "files": [
-        "main.da37af9707791c33d997.js"
+        "main.b0f23a3315068d97b2e6.js"
       ]
     },
     {
       "id": "manifest",
       "files": [
-        "manifest.4629c1ab66943f0d75f1.js"
+        "manifest.172fcfe6ede84f5d33a1.js"
       ]
     },
     {
       "id": "current_time",
       "files": [
         "current_time.c221602a69ee1e9ec0c7.js"
+      ]
+    },
+    {
+      "id": "tasks",
+      "files": [
+        "tasks.c5517324035fc6496c9e.js"
       ]
     },
     {
@@ -136,7 +162,7 @@
     {
       "id": "node_vendors",
       "files": [
-        "node_vendors.0445424c8c17169ce4f2.js"
+        "node_vendors.be714688be09d66e14de.js"
       ]
     },
     {
