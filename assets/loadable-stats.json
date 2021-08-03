@@ -1,5 +1,5 @@
 {
-  "hash": "b531d0b00d0c45ce806f",
+  "hash": "4d478ae2afb341368a67",
   "publicPath": "/",
   "outputPath": "C:\\Users\\Sara\\Desktop\\project-2021-d\\assets",
   "assetsByChunkName": {
@@ -7,13 +7,13 @@
       "main.f8861015cc6968a2be0b.js"
     ],
     "manifest": [
-      "manifest.0a83879810f3d4d366fe.js"
+      "manifest.b5277d25a47f01469506.js"
     ],
     "current_time": [
       "current_time.c221602a69ee1e9ec0c7.js"
     ],
     "tasks": [
-      "tasks.0ac90ab6713f70aa2491.js"
+      "tasks.87ac4e323af20a652cbc.js"
     ],
     "async_countdown": [
       "async_countdown.e33fefa6f93759a13cd6.js"
@@ -30,7 +30,7 @@
       "type": "assets by status",
       "cached": true,
       "filteredChildren": 7,
-      "size": 1808728
+      "size": 1822974
     }
   ],
   "namedChunkGroups": {
@@ -43,7 +43,7 @@
       ],
       "assets": [
         {
-          "name": "manifest.0a83879810f3d4d366fe.js"
+          "name": "manifest.b5277d25a47f01469506.js"
         },
         {
           "name": "node_vendors.68cd14cb6565cf65c04c.js"
@@ -95,7 +95,7 @@
           "name": "node_vendors.68cd14cb6565cf65c04c.js"
         },
         {
-          "name": "tasks.0ac90ab6713f70aa2491.js"
+          "name": "tasks.87ac4e323af20a652cbc.js"
         }
       ],
       "filteredAssets": 0,
@@ -142,7 +142,7 @@
     {
       "id": "manifest",
       "files": [
-        "manifest.0a83879810f3d4d366fe.js"
+        "manifest.b5277d25a47f01469506.js"
       ]
     },
     {
@@ -154,7 +154,7 @@
     {
       "id": "tasks",
       "files": [
-        "tasks.0ac90ab6713f70aa2491.js"
+        "tasks.87ac4e323af20a652cbc.js"
       ]
     },
     {

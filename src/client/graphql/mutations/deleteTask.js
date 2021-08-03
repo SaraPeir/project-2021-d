@@ -6,6 +6,7 @@ const DELETE_TASK = gql`
             _id
             isDone
             task
+            body
         }
   }
 `;

@@ -18,14 +18,17 @@ export default {
 
   editTask: async args => {
     try {
-      const { id } = args
+      const { id, isDone, body, task } = args.task
       const taskToChange = await Task.findById({_id: id});
+
+      taskToChange.isDone = isDone
+      taskToChange.body = body
+      taskToChange.task = task
+
+      await taskToChange.save()
 
       return {
         ...taskToChange._doc,
-        _id: taskToChange.id,
-        isDone: !taskToChange.isDone
-        // createdAt: new Date(article._doc.createdAt).toISOString(),
       }
     } catch (error) {
       throw error
@@ -34,10 +37,11 @@ export default {
 
   createTask: async args => {
     try {
-      const { task, isDone } = args.task
+      const { task, isDone, body } = args.task
       const taskClass = new Task({
         task,
         isDone,
+        body
       })
       const newTask = await taskClass.save()
       return { ...newTask._doc, _id: newTask.id }

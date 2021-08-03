@@ -6,11 +6,20 @@ export default buildSchema(`
     _id: ID!
     task: String!
     isDone: Boolean!
+    body: String!
   }
 
   input TaskInput {
     task: String!
     isDone: Boolean!
+    body: String!
+  }
+
+  input TaskInputToEdit {
+    id: ID!
+    task: String!
+    isDone: Boolean!
+    body: String!
   }
 
   type Query {
@@ -19,7 +28,7 @@ export default buildSchema(`
 
   type Mutation {
     createTask(task:TaskInput): Task
-    editTask(id: ID): Task
+    editTask(task:TaskInputToEdit): Task
     deleteTask(id: ID): Task
   }
 
