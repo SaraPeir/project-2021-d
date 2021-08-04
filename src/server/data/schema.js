@@ -24,6 +24,7 @@ export default buildSchema(`
 
   type Query {
     tasks: [Task!]
+    task(id: ID): Task
   }
 
   type Mutation {

@@ -388,6 +388,7 @@ var client = new _apollo_client__WEBPACK_IMPORTED_MODULE_5__.ApolloClient({
   uri: 'http://localhost:4000/graphql',
   cache: new _apollo_client__WEBPACK_IMPORTED_MODULE_6__.InMemoryCache()
 });
+console.log('client', client);
 client.query({
   query: (0,_apollo_client__WEBPACK_IMPORTED_MODULE_7__.default)(_templateObject || (_templateObject = (0,_babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__.default)(["\n      query getTasks {\n          tasks {\n            _id\n            isDone\n            task\n          }\n      }\n    "])))
 }).then(function (result) {
@@ -535,4 +536,4 @@ __webpack_require__.r(__webpack_exports__);
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
-//# sourceMappingURL=main.f8861015cc6968a2be0b.js.map
+//# sourceMappingURL=main.ec51bbb4bc70f6b866ab.js.map

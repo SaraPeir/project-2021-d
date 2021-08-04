@@ -1,5 +1,241 @@
 (self["__LOADABLE_LOADED_CHUNKS__"] = self["__LOADABLE_LOADED_CHUNKS__"] || []).push([["tasks"],{
 
+/***/ "./src/client/components/Form/Form.js":
+/*!********************************************!*\
+  !*** ./src/client/components/Form/Form.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _graphql_mutations_editTask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../graphql/mutations/editTask */ "./src/client/graphql/mutations/editTask.js");
+/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
+
+
+
+
+
+function Form(_ref) {
+  var id = _ref.id,
+      task = _ref.task,
+      body = _ref.body,
+      isDone = _ref.isDone;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(task),
+      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
+      taskInput = _useState2[0],
+      setTaskInput = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(body),
+      _useState4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState3, 2),
+      bodyInput = _useState4[0],
+      setBodyInput = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(isDone),
+      _useState6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState5, 2),
+      isChecked = _useState6[0],
+      setIsChecked = _useState6[1];
+
+  var _useMutation = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_3__.useMutation)(_graphql_mutations_editTask__WEBPACK_IMPORTED_MODULE_2__.default),
+      _useMutation2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useMutation, 2),
+      editTask = _useMutation2[0],
+      _useMutation2$ = _useMutation2[1],
+      loading = _useMutation2$.loading,
+      error = _useMutation2$.error;
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("form", {
+    onSubmit: function onSubmit(e) {
+      e.preventDefault();
+      editTask({
+        variables: {
+          id: id,
+          isDone: isChecked,
+          task: taskInput,
+          body: bodyInput
+        }
+      });
+      console.log("ID:".concat(id, " SUBMITTED"));
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+    className: "mb-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("label", {
+    htmlFor: "task-title",
+    className: "form-label"
+  }, "Task"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("input", {
+    type: "text",
+    className: "form-control",
+    id: "task-title",
+    defaultValue: task,
+    onChange: function onChange(e) {
+      return setTaskInput(e.target.value);
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+    className: "mb-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("label", {
+    htmlFor: "task-details",
+    className: "form-label"
+  }, "Task details"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("textarea", {
+    className: "form-control",
+    id: "task-details",
+    rows: "3",
+    defaultValue: body,
+    onChange: function onChange(e) {
+      return setBodyInput(e.target.value);
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+    className: "form-check"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("input", {
+    className: "form-check-input",
+    type: "checkbox",
+    value: "",
+    id: "flexCheckIndeterminate",
+    onChange: function onChange(e) {
+      return setIsChecked(e.target.checked);
+    },
+    checked: isChecked
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("label", {
+    className: "form-check-label",
+    htmlFor: "flexCheckIndeterminate"
+  }, "Completed")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", {
+    type: "submit",
+    className: "btn btn-primary"
+  }, "Save"));
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Form);
+
+/***/ }),
+
+/***/ "./src/client/components/Form/index.js":
+/*!*********************************************!*\
+  !*** ./src/client/components/Form/index.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form */ "./src/client/components/Form/Form.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_Form__WEBPACK_IMPORTED_MODULE_0__.default);
+
+/***/ }),
+
+/***/ "./src/client/components/Modal/Modal.js":
+/*!**********************************************!*\
+  !*** ./src/client/components/Modal/Modal.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Form */ "./src/client/components/Form/index.js");
+/* harmony import */ var _graphql_mutations_editTask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../graphql/mutations/editTask */ "./src/client/graphql/mutations/editTask.js");
+/* harmony import */ var _graphql_queries_task__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../graphql/queries/task */ "./src/client/graphql/queries/task.js");
+
+
+
+
+
+
+function Modal(_ref) {
+  var id = _ref.id,
+      task = _ref.task,
+      body = _ref.body,
+      isDone = _ref.isDone;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "modal fade",
+    id: "modal-".concat(id),
+    tabIndex: "-1",
+    "aria-labelledby": "exampleModalLabel",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "modal-dialog"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "modal-content"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "modal-header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", {
+    className: "modal-title"
+  }, "Modal title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    type: "button",
+    className: "btn-close",
+    "data-bs-dismiss": "modal",
+    "aria-label": "Save"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "modal-body"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Form__WEBPACK_IMPORTED_MODULE_1__.default, {
+    task: task,
+    body: body,
+    id: id,
+    isDone: isDone
+  })))));
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Modal);
+
+/***/ }),
+
+/***/ "./src/client/components/Modal/ModalButton.js":
+/*!****************************************************!*\
+  !*** ./src/client/components/Modal/ModalButton.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
+function ModalButton(_ref) {
+  var id = _ref.id;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    type: "button",
+    className: "btn btn-primary",
+    "data-bs-toggle": "modal",
+    "data-bs-target": "#modal-".concat(id)
+  }, "Edit");
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalButton);
+
+/***/ }),
+
+/***/ "./src/client/components/Modal/index.js":
+/*!**********************************************!*\
+  !*** ./src/client/components/Modal/index.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "ModalButton": () => (/* reexport safe */ _ModalButton__WEBPACK_IMPORTED_MODULE_1__.default)
+/* harmony export */ });
+/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Modal */ "./src/client/components/Modal/Modal.js");
+/* harmony import */ var _ModalButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ModalButton */ "./src/client/components/Modal/ModalButton.js");
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_Modal__WEBPACK_IMPORTED_MODULE_0__.default);
+
+
+/***/ }),
+
 /***/ "./src/client/components/Spinner/index.js":
 /*!************************************************!*\
   !*** ./src/client/components/Spinner/index.js ***!
@@ -16,10 +252,10 @@ __webpack_require__.r(__webpack_exports__);
 
 function Spinner() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "spinner-border",
+    className: "spinner-border",
     role: "status"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-    "class": "visually-hidden"
+    className: "visually-hidden"
   }, "Loading..."));
 }
 
@@ -41,9 +277,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _graphql_mutations_deleteTask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../graphql/mutations/deleteTask */ "./src/client/graphql/mutations/deleteTask.js");
-/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
-/* harmony import */ var _Spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Spinner */ "./src/client/components/Spinner/index.js");
-/* harmony import */ var _Task_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Task.scss */ "./src/client/components/Task/Task.scss");
+/* harmony import */ var _graphql_queries_tasks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../graphql/queries/tasks */ "./src/client/graphql/queries/tasks.js");
+/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
+/* harmony import */ var _Spinner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Spinner */ "./src/client/components/Spinner/index.js");
+/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Modal */ "./src/client/components/Modal/index.js");
+/* harmony import */ var _Task_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Task.scss */ "./src/client/components/Task/Task.scss");
+
+
 
 
 
@@ -57,14 +297,18 @@ var Task = function Task(_ref) {
       id = _ref.id,
       body = _ref.body;
 
-  var _useMutation = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_5__.useMutation)(_graphql_mutations_deleteTask__WEBPACK_IMPORTED_MODULE_2__.default),
+  var _useMutation = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_7__.useMutation)(_graphql_mutations_deleteTask__WEBPACK_IMPORTED_MODULE_2__.default, {
+    refetchQueries: [{
+      query: _graphql_queries_tasks__WEBPACK_IMPORTED_MODULE_3__.default
+    }]
+  }),
       _useMutation2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useMutation, 2),
       deleteTask = _useMutation2[0],
       _useMutation2$ = _useMutation2[1],
       loading = _useMutation2$.loading,
       error = _useMutation2$.error;
 
-  if (loading) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Spinner__WEBPACK_IMPORTED_MODULE_3__.default, null);
+  if (loading) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Spinner__WEBPACK_IMPORTED_MODULE_4__.default, null);
   if (error) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("p", null, "Error :(");
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
     className: "card card-style"
@@ -76,10 +320,9 @@ var Task = function Task(_ref) {
     className: "card-text"
   }, body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
     className: "buttons-container d-flex justify-content-around"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", {
-    type: "button",
-    className: "btn btn-primary"
-  }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Modal__WEBPACK_IMPORTED_MODULE_5__.ModalButton, {
+    id: id
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", {
     onClick: function onClick() {
       return deleteTask({
         variables: {
@@ -89,7 +332,12 @@ var Task = function Task(_ref) {
     },
     type: "button",
     className: "btn btn-primary"
-  }, "Delete"))));
+  }, "Delete"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Modal__WEBPACK_IMPORTED_MODULE_5__.default, {
+    id: id,
+    task: task,
+    body: body,
+    isDone: isDone
+  }))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Task);
@@ -240,6 +488,52 @@ var DELETE_TASK = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_1__.default)(_templ
 
 /***/ }),
 
+/***/ "./src/client/graphql/mutations/editTask.js":
+/*!**************************************************!*\
+  !*** ./src/client/graphql/mutations/editTask.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/taggedTemplateLiteral */ "./node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/client */ "./node_modules/graphql-tag/lib/index.js");
+
+
+var _templateObject;
+
+
+var EDIT_TASK = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_1__.default)(_templateObject || (_templateObject = (0,_babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__.default)(["\n    mutation editTask(\n            $id: ID!\n            $isDone: Boolean!\n            $task: String!\n            $body: String!\n        ) {\n        editTask(\n            task: {\n                id: $id\n                isDone: $isDone\n                task: $task\n                body: $body\n            }) {\n            _id\n            isDone\n            task\n            body\n        }\n  }\n"])));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (EDIT_TASK);
+
+/***/ }),
+
+/***/ "./src/client/graphql/queries/task.js":
+/*!********************************************!*\
+  !*** ./src/client/graphql/queries/task.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/taggedTemplateLiteral */ "./node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/client */ "./node_modules/graphql-tag/lib/index.js");
+
+
+var _templateObject;
+
+
+var CURRENT_TASK = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_1__.default)(_templateObject || (_templateObject = (0,_babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__.default)(["\n    query currentTask($id: ID) {\n        currentTask(id: $id) {\n            _id\n            isDone\n            task\n            body\n        }\n  }\n"])));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CURRENT_TASK);
+
+/***/ }),
+
 /***/ "./src/client/graphql/queries/tasks.js":
 /*!*********************************************!*\
   !*** ./src/client/graphql/queries/tasks.js ***!
@@ -365,4 +659,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /***/ })
 
 }]);
-//# sourceMappingURL=tasks.87ac4e323af20a652cbc.js.map
+//# sourceMappingURL=tasks.753603aa2a11b9469220.js.map

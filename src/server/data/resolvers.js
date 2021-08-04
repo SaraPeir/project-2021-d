@@ -1,6 +1,15 @@
 import Task from './model'
 
 export default {
+  task: async args => {
+    try {
+      const { id } = args;
+      const taskFetched = await Task.findById({_id: id});
+      return taskFetched
+    } catch (error) {
+      throw error
+    }
+  },
   tasks: async () => {
     try {
       const tasksFetched = await Task.find({})
