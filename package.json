@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm run client\" \"npm run server\"",
-    "client": "webpack --mode development",
+    "start": "concurrently \"npm run build\" \"npm run server\"",
+    "build": "webpack --mode development",
     "server": "nodemon server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
