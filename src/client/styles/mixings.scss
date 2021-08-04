@@ -1,0 +1,9 @@
+@mixin make-container($padding-r-x: 20px, $padding-l-x: 20px, $padding-t-x: 20px, $padding-b-x: 20px, $width-x: 100%) {
+    width: $width-x;
+    padding-right: $padding-r-x;
+    padding-left: $padding-l-x;
+    padding-top: $padding-t-x;
+    padding-bottom: $padding-b-x;
+    margin-right: auto;
+    margin-left: auto;
+  }

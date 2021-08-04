@@ -33,46 +33,6 @@ var App = function App(props) {
 
 /***/ }),
 
-/***/ "./src/client/Counter.js":
-/*!*******************************!*\
-  !*** ./src/client/Counter.js ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _redux_slices_counter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../redux/slices/counter */ "./src/redux/slices/counter.js");
-
-
-
-
-var Counter = function Counter() {
-  var count = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
-    return state.counter.value;
-  });
-  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-    "aria-label": "Increment value",
-    onClick: function onClick() {
-      return dispatch((0,_redux_slices_counter__WEBPACK_IMPORTED_MODULE_2__.incrementByAmount)(10));
-    }
-  }, "Increment of 10"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, count), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-    "aria-label": "Decrement value",
-    onClick: function onClick() {
-      return dispatch((0,_redux_slices_counter__WEBPACK_IMPORTED_MODULE_2__.decrement)());
-    }
-  }, "Decrement"));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Counter);
-
-/***/ }),
-
 /***/ "./src/client/Global.js":
 /*!******************************!*\
   !*** ./src/client/Global.js ***!
@@ -85,14 +45,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components_CurrentTime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/CurrentTime */ "./src/client/components/CurrentTime/index.js");
-/* harmony import */ var _components_Tasks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Tasks */ "./src/client/components/Tasks/index.js");
-/* harmony import */ var _asyncComponents_Countdown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./asyncComponents/Countdown */ "./src/client/asyncComponents/Countdown/index.js");
-/* harmony import */ var _Counter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Counter */ "./src/client/Counter.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _redux_slices_countdownShower__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../redux/slices/countdownShower */ "./src/redux/slices/countdownShower.js");
-
-
+/* harmony import */ var _components_Tasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Tasks */ "./src/client/components/Tasks/index.js");
+/* harmony import */ var _asyncComponents_Countdown__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./asyncComponents/Countdown */ "./src/client/asyncComponents/Countdown/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _redux_slices_countdownShower__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../redux/slices/countdownShower */ "./src/redux/slices/countdownShower.js");
 
 
 
@@ -100,14 +56,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Global = function Global(props) {
-  var isCountdownDisplayed = (0,react_redux__WEBPACK_IMPORTED_MODULE_5__.useSelector)(function (state) {
+  var isCountdownDisplayed = (0,react_redux__WEBPACK_IMPORTED_MODULE_3__.useSelector)(function (state) {
     console.log('state', state);
     return state.countdownShower.value;
   });
 
   var countdown = function countdown() {
     if (isCountdownDisplayed) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_asyncComponents_Countdown__WEBPACK_IMPORTED_MODULE_3__.default, null);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_asyncComponents_Countdown__WEBPACK_IMPORTED_MODULE_2__.default, null);
     }
 
     return;
@@ -119,12 +75,12 @@ var Global = function Global(props) {
     return console.log(arrayFromFetch);
   };
 
-  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_5__.useDispatch)();
+  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_3__.useDispatch)();
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     onClick: function onClick() {
-      return dispatch((0,_redux_slices_countdownShower__WEBPACK_IMPORTED_MODULE_6__.showCountdown)());
+      return dispatch((0,_redux_slices_countdownShower__WEBPACK_IMPORTED_MODULE_4__.showCountdown)());
     }
-  }, "See how miss to 2022"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_CurrentTime__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Tasks__WEBPACK_IMPORTED_MODULE_2__.default, null), countdown(), showInConsole(arrayFromFetch), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Counter__WEBPACK_IMPORTED_MODULE_4__.default, null));
+  }, "See how miss to 2022"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Tasks__WEBPACK_IMPORTED_MODULE_1__.default, null), countdown(), showInConsole(arrayFromFetch));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Global);
@@ -216,76 +172,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AsyncCountdown__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AsyncCountdown */ "./src/client/asyncComponents/Countdown/AsyncCountdown.js");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_AsyncCountdown__WEBPACK_IMPORTED_MODULE_0__.default);
-
-/***/ }),
-
-/***/ "./src/client/components/CurrentTime/index.js":
-/*!****************************************************!*\
-  !*** ./src/client/components/CurrentTime/index.js ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _loadable_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @loadable/component */ "./node_modules/@loadable/component/dist/loadable.esm.js");
-/* import CurrentTime from './CurrentTime'
-
-export default CurrentTime;
- */
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_loadable_component__WEBPACK_IMPORTED_MODULE_0__.default)({
-  resolved: {},
-  chunkName: function chunkName() {
-    return "current_time";
-  },
-  isReady: function isReady(props) {
-    var key = this.resolve(props);
-
-    if (this.resolved[key] !== true) {
-      return false;
-    }
-
-    if (true) {
-      return !!__webpack_require__.m[key];
-    }
-
-    return false;
-  },
-  importAsync: function importAsync() {
-    return Promise.all(/*! import() | current_time */[__webpack_require__.e("node_vendors"), __webpack_require__.e("shared_vendors"), __webpack_require__.e("current_time")]).then(__webpack_require__.bind(__webpack_require__, /*! ./CurrentTime */ "./src/client/components/CurrentTime/CurrentTime.js"));
-  },
-  requireAsync: function requireAsync(props) {
-    var _this = this;
-
-    var key = this.resolve(props);
-    this.resolved[key] = false;
-    return this.importAsync(props).then(function (resolved) {
-      _this.resolved[key] = true;
-      return resolved;
-    });
-  },
-  requireSync: function requireSync(props) {
-    var id = this.resolve(props);
-
-    if (true) {
-      return __webpack_require__(id);
-    }
-
-    return eval('module.require')(id);
-  },
-  resolve: function resolve() {
-    if (true) {
-      return /*require.resolve*/(/*! ./CurrentTime */ "./src/client/components/CurrentTime/CurrentTime.js");
-    }
-
-    return eval('require.resolve')("./CurrentTime");
-  }
-}, {
-  ssr: false
-}));
 
 /***/ }),
 
@@ -536,4 +422,4 @@ __webpack_require__.r(__webpack_exports__);
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
-//# sourceMappingURL=main.ec51bbb4bc70f6b866ab.js.map
+//# sourceMappingURL=main.3e8d5af4a9972024152b.js.map

@@ -1,19 +1,16 @@
 {
-  "hash": "b777294304f733f9d104",
+  "hash": "442e403ba098376f1e22",
   "publicPath": "/",
   "outputPath": "C:\\Users\\Sara\\Desktop\\project-2021-d\\assets",
   "assetsByChunkName": {
     "main": [
-      "main.ec51bbb4bc70f6b866ab.js"
+      "main.3e8d5af4a9972024152b.js"
     ],
     "manifest": [
-      "manifest.f4f04475be4c3638f3fa.js"
-    ],
-    "current_time": [
-      "current_time.c221602a69ee1e9ec0c7.js"
+      "manifest.119685568d5a78b1f9e5.js"
     ],
     "tasks": [
-      "tasks.4568b0ced51e7674ecef.js"
+      "tasks.2e688972917df07c6e4e.js"
     ],
     "async_countdown": [
       "async_countdown.e33fefa6f93759a13cd6.js"
@@ -29,8 +26,8 @@
     {
       "type": "assets by status",
       "cached": true,
-      "filteredChildren": 7,
-      "size": 1837053
+      "filteredChildren": 6,
+      "size": 1841728
     }
   ],
   "namedChunkGroups": {
@@ -43,38 +40,13 @@
       ],
       "assets": [
         {
-          "name": "manifest.f4f04475be4c3638f3fa.js"
+          "name": "manifest.119685568d5a78b1f9e5.js"
         },
         {
           "name": "node_vendors.68cd14cb6565cf65c04c.js"
         },
         {
-          "name": "main.ec51bbb4bc70f6b866ab.js"
-        }
-      ],
-      "filteredAssets": 0,
-      "assetsSize": null,
-      "filteredAuxiliaryAssets": 3,
-      "auxiliaryAssetsSize": null,
-      "children": {},
-      "childAssets": {}
-    },
-    "current_time": {
-      "name": "current_time",
-      "chunks": [
-        "node_vendors",
-        "shared_vendors",
-        "current_time"
-      ],
-      "assets": [
-        {
-          "name": "node_vendors.68cd14cb6565cf65c04c.js"
-        },
-        {
-          "name": "shared_vendors.c2b55e0e64fe6ccbe679.js"
-        },
-        {
-          "name": "current_time.c221602a69ee1e9ec0c7.js"
+          "name": "main.3e8d5af4a9972024152b.js"
         }
       ],
       "filteredAssets": 0,
@@ -95,7 +67,7 @@
           "name": "node_vendors.68cd14cb6565cf65c04c.js"
         },
         {
-          "name": "tasks.4568b0ced51e7674ecef.js"
+          "name": "tasks.2e688972917df07c6e4e.js"
         }
       ],
       "filteredAssets": 0,
@@ -136,25 +108,19 @@
     {
       "id": "main",
       "files": [
-        "main.ec51bbb4bc70f6b866ab.js"
+        "main.3e8d5af4a9972024152b.js"
       ]
     },
     {
       "id": "manifest",
       "files": [
-        "manifest.f4f04475be4c3638f3fa.js"
-      ]
-    },
-    {
-      "id": "current_time",
-      "files": [
-        "current_time.c221602a69ee1e9ec0c7.js"
+        "manifest.119685568d5a78b1f9e5.js"
       ]
     },
     {
       "id": "tasks",
       "files": [
-        "tasks.4568b0ced51e7674ecef.js"
+        "tasks.2e688972917df07c6e4e.js"
       ]
     },
     {

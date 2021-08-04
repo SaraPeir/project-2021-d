@@ -24,7 +24,7 @@ const Task = ({ isDone, task, id, body }) => {
                 <p>{isDone.toString()}</p>
                 <p className="card-text">{body}</p>
                     <div className="buttons-container d-flex justify-content-around">
-                        <ModalButton id={id} />
+                        <ModalButton target={`#modal-${id}`} text={'Edit'} />
                         <button 
                             onClick={() => deleteTask({
                                             variables: {
@@ -36,8 +36,8 @@ const Task = ({ isDone, task, id, body }) => {
                             className="btn btn-primary">
                                 Delete
                         </button>
-                        <Modal id={id} task={task} body={body} isDone={isDone} />
-                    </div>
+                        </div>
+                        <Modal isToEditTask target={`modal-${id}`} id={id} task={task} body={body} isDone={isDone} />
                 </div>
             </div>
         ) 

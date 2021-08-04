@@ -1,8 +1,6 @@
 import React from "react"
-import CurrentTime from './components/CurrentTime'
 import Tasks from './components/Tasks'
 import Countdown from './asyncComponents/Countdown'
-import Counter from './Counter'
 import { useSelector, useDispatch } from 'react-redux'
 import { showCountdown } from '../redux/slices/countdownShower'
 
@@ -26,11 +24,9 @@ const Global = (props) => {
     return(
         <React.Fragment>
             <button onClick={() => dispatch(showCountdown())}>See how miss to 2022</button>
-            <CurrentTime />
             <Tasks />
             {countdown()}
             {showInConsole(arrayFromFetch)}
-            <Counter />
         </React.Fragment>
     )
 }

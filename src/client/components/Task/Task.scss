@@ -1,14 +1,8 @@
+@import '../../styles/mixings.scss';
+
 .card-style {
     width: 18rem;
 }
-
-@mixin make-container($padding-x: 20px) {
-    width: 100%;
-    padding-right: $padding-x;
-    padding-left: $padding-x;
-    margin-right: auto;
-    margin-left: auto;
-  }
 
   .card-text {
     overflow: hidden;

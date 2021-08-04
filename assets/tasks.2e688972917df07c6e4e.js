@@ -14,8 +14,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _graphql_mutations_editTask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../graphql/mutations/editTask */ "./src/client/graphql/mutations/editTask.js");
-/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
-/* harmony import */ var _Spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Spinner */ "./src/client/components/Spinner/index.js");
+/* harmony import */ var _graphql_mutations_createTask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../graphql/mutations/createTask */ "./src/client/graphql/mutations/createTask.js");
+/* harmony import */ var _graphql_queries_tasks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../graphql/queries/tasks */ "./src/client/graphql/queries/tasks.js");
+/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
+/* harmony import */ var _Spinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Spinner */ "./src/client/components/Spinner/index.js");
+
+
 
 
 
@@ -26,7 +30,8 @@ function Form(_ref) {
   var id = _ref.id,
       task = _ref.task,
       body = _ref.body,
-      isDone = _ref.isDone;
+      isDone = _ref.isDone,
+      isToEditTask = _ref.isToEditTask;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(task),
       _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
@@ -43,27 +48,46 @@ function Form(_ref) {
       isChecked = _useState6[0],
       setIsChecked = _useState6[1];
 
-  var _useMutation = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_4__.useMutation)(_graphql_mutations_editTask__WEBPACK_IMPORTED_MODULE_2__.default),
+  var _useMutation = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_6__.useMutation)(_graphql_mutations_editTask__WEBPACK_IMPORTED_MODULE_2__.default),
       _useMutation2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useMutation, 2),
       editTask = _useMutation2[0],
       _useMutation2$ = _useMutation2[1],
       loading = _useMutation2$.loading,
       error = _useMutation2$.error;
 
-  if (loading) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Spinner__WEBPACK_IMPORTED_MODULE_3__.default, null);
+  var _useMutation3 = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_6__.useMutation)(_graphql_mutations_createTask__WEBPACK_IMPORTED_MODULE_3__.default, {
+    refetchQueries: [{
+      query: _graphql_queries_tasks__WEBPACK_IMPORTED_MODULE_4__.default
+    }]
+  }),
+      _useMutation4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useMutation3, 2),
+      createTask = _useMutation4[0],
+      _useMutation4$ = _useMutation4[1],
+      createdTaskLoading = _useMutation4$.loading,
+      createdTaskError = _useMutation4$.error;
+
+  if (loading) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Spinner__WEBPACK_IMPORTED_MODULE_5__.default, null);
   if (error) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("p", null, "Error :(");
+  if (createdTaskLoading) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Spinner__WEBPACK_IMPORTED_MODULE_5__.default, null);
+  if (createdTaskError) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("p", null, "Error :(");
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("form", {
     onSubmit: function onSubmit(e) {
       e.preventDefault();
-      editTask({
+      isToEditTask ? editTask({
         variables: {
           id: id,
           isDone: isChecked,
           task: taskInput,
           body: bodyInput
         }
+      }) : createTask({
+        variables: {
+          isDone: false,
+          task: taskInput,
+          body: bodyInput
+        }
       });
-      console.log("ID:".concat(id, " SUBMITTED"));
+      isToEditTask ? console.log("ID:".concat(id, " SUBMITTED")) : console.log('new task created');
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
     className: "mb-3"
@@ -91,7 +115,7 @@ function Form(_ref) {
     onChange: function onChange(e) {
       return setBodyInput(e.target.value);
     }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+  })), isToEditTask && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
     className: "form-check"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("input", {
     className: "form-check-input",
@@ -105,11 +129,13 @@ function Form(_ref) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("label", {
     className: "form-check-label",
     htmlFor: "flexCheckIndeterminate"
-  }, "Completed")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", {
+  }, "Completed")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+    className: "d-grid gap-2 mx-auto col-6 p-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", {
     type: "submit",
     className: "btn btn-primary",
     "data-bs-dismiss": "modal"
-  }, "Save"));
+  }, "Save")));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Form);
@@ -146,11 +172,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Form */ "./src/client/components/Form/index.js");
-/* harmony import */ var _graphql_mutations_editTask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../graphql/mutations/editTask */ "./src/client/graphql/mutations/editTask.js");
-/* harmony import */ var _graphql_queries_task__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../graphql/queries/task */ "./src/client/graphql/queries/task.js");
-
-
-
 
 
 
@@ -158,10 +179,12 @@ function Modal(_ref) {
   var id = _ref.id,
       task = _ref.task,
       body = _ref.body,
-      isDone = _ref.isDone;
+      isDone = _ref.isDone,
+      target = _ref.target,
+      isToEditTask = _ref.isToEditTask;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "modal fade",
-    id: "modal-".concat(id),
+    id: target,
     tabIndex: "-1",
     "aria-labelledby": "exampleModalLabel",
     "aria-hidden": "true"
@@ -173,7 +196,7 @@ function Modal(_ref) {
     className: "modal-header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", {
     className: "modal-title"
-  }, "Modal title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+  }, isToEditTask ? 'Edit the task' : 'Create a new task'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     type: "button",
     className: "btn-close",
     "data-bs-dismiss": "modal",
@@ -184,7 +207,8 @@ function Modal(_ref) {
     task: task,
     body: body,
     id: id,
-    isDone: isDone
+    isDone: isDone,
+    isToEditTask: isToEditTask
   })))));
 }
 
@@ -207,13 +231,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function ModalButton(_ref) {
-  var id = _ref.id;
+  var target = _ref.target,
+      text = _ref.text;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     type: "button",
     className: "btn btn-primary",
     "data-bs-toggle": "modal",
-    "data-bs-target": "#modal-".concat(id)
-  }, "Edit");
+    "data-bs-target": target
+  }, text);
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalButton);
@@ -326,7 +351,8 @@ var Task = function Task(_ref) {
   }, body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
     className: "buttons-container d-flex justify-content-around"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Modal__WEBPACK_IMPORTED_MODULE_5__.ModalButton, {
-    id: id
+    target: "#modal-".concat(id),
+    text: 'Edit'
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", {
     onClick: function onClick() {
       return deleteTask({
@@ -337,12 +363,14 @@ var Task = function Task(_ref) {
     },
     type: "button",
     className: "btn btn-primary"
-  }, "Delete"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Modal__WEBPACK_IMPORTED_MODULE_5__.default, {
+  }, "Delete")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Modal__WEBPACK_IMPORTED_MODULE_5__.default, {
+    isToEditTask: true,
+    target: "modal-".concat(id),
     id: id,
     task: task,
     body: body,
     isDone: isDone
-  }))));
+  })));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Task);
@@ -429,22 +457,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _graphql_queries_tasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../graphql/queries/tasks */ "./src/client/graphql/queries/tasks.js");
 /* harmony import */ var _Task__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Task */ "./src/client/components/Task/index.js");
-/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
+/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
+/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Modal */ "./src/client/components/Modal/index.js");
+/* harmony import */ var _Tasks_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Tasks.scss */ "./src/client/components/Tasks/Tasks.scss");
+
+
 
 
 
 
 
 var Tasks = function Tasks() {
-  var _useQuery = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_3__.useQuery)(_graphql_queries_tasks__WEBPACK_IMPORTED_MODULE_1__.default),
+  var _useQuery = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_5__.useQuery)(_graphql_queries_tasks__WEBPACK_IMPORTED_MODULE_1__.default),
       loading = _useQuery.loading,
       error = _useQuery.error,
-      data = _useQuery.data; // add { data, loading, error } when query and mutations will be in separated files
-
+      data = _useQuery.data;
 
   if (loading) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Loading...");
   if (error) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Error :(");
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "todo-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
+    className: "text-center"
+  }, "Tasks board"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "d-grid gap-2 mx-auto col-6 p-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Modal__WEBPACK_IMPORTED_MODULE_3__.ModalButton, {
+    target: '#create-modal',
+    text: 'Add a task'
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "container-fluid"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "row gy-5 g-2"
@@ -463,10 +503,36 @@ var Tasks = function Tasks() {
       id: _id,
       body: body
     }));
-  })));
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Modal__WEBPACK_IMPORTED_MODULE_3__.default, {
+    isToEditTask: false,
+    target: 'create-modal'
+  }));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Tasks);
+
+/***/ }),
+
+/***/ "./src/client/graphql/mutations/createTask.js":
+/*!****************************************************!*\
+  !*** ./src/client/graphql/mutations/createTask.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/taggedTemplateLiteral */ "./node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/client */ "./node_modules/graphql-tag/lib/index.js");
+
+
+var _templateObject;
+
+
+var CREATE_TASK = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_1__.default)(_templateObject || (_templateObject = (0,_babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__.default)(["\n    mutation createTask(\n            $isDone: Boolean!\n            $task: String!\n            $body: String!\n        ) {\n        createTask(\n            task: {\n                isDone: $isDone\n                task: $task\n                body: $body\n            }) {\n            _id\n            isDone\n            task\n            body\n        }\n  }\n"])));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CREATE_TASK);
 
 /***/ }),
 
@@ -516,29 +582,6 @@ var EDIT_TASK = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_1__.default)(_templat
 
 /***/ }),
 
-/***/ "./src/client/graphql/queries/task.js":
-/*!********************************************!*\
-  !*** ./src/client/graphql/queries/task.js ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/taggedTemplateLiteral */ "./node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js");
-/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/client */ "./node_modules/graphql-tag/lib/index.js");
-
-
-var _templateObject;
-
-
-var CURRENT_TASK = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_1__.default)(_templateObject || (_templateObject = (0,_babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__.default)(["\n    query currentTask($id: ID) {\n        currentTask(id: $id) {\n            _id\n            isDone\n            task\n            body\n        }\n  }\n"])));
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CURRENT_TASK);
-
-/***/ }),
-
 /***/ "./src/client/graphql/queries/tasks.js":
 /*!*********************************************!*\
   !*** ./src/client/graphql/queries/tasks.js ***!
@@ -582,7 +625,34 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".card-style {\n  width: 18rem;\n}\n\n.card-text {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.buttons-container {\n  width: 100%;\n  padding-right: 20px;\n  padding-left: 20px;\n  margin-right: auto;\n  margin-left: auto;\n}", "",{"version":3,"sources":["webpack://./src/client/components/Task/Task.scss"],"names":[],"mappings":"AAAA;EACI,YAAA;AACJ;;AAUE;EACE,gBAAA;EACA,uBAAA;EACA,mBAAA;AAPJ;;AAUE;EAbE,WAAA;EACA,mBAF8B;EAG9B,kBAH8B;EAI9B,kBAAA;EACA,iBAAA;AAOJ","sourcesContent":[".card-style {\r\n    width: 18rem;\r\n}\r\n\r\n@mixin make-container($padding-x: 20px) {\r\n    width: 100%;\r\n    padding-right: $padding-x;\r\n    padding-left: $padding-x;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n  }\r\n\r\n  .card-text {\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap; \r\n  }\r\n\r\n  .buttons-container {\r\n    @include make-container();\r\n  }"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".card-style {\n  width: 18rem;\n}\n\n.card-text {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.buttons-container {\n  width: 100%;\n  padding-right: 20px;\n  padding-left: 20px;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  margin-right: auto;\n  margin-left: auto;\n}", "",{"version":3,"sources":["webpack://./src/client/components/Task/Task.scss","webpack://./src/client/styles/mixings.scss"],"names":[],"mappings":"AAEA;EACI,YAAA;AADJ;;AAIE;EACE,gBAAA;EACA,uBAAA;EACA,mBAAA;AADJ;;AAIE;ECXE,WAD4G;EAE5G,mBAFgC;EAGhC,kBAHoD;EAIpD,iBAJwE;EAKxE,oBAL4F;EAM5F,kBAAA;EACA,iBAAA;ADWJ","sourcesContent":["@import '../../styles/mixings.scss';\r\n\r\n.card-style {\r\n    width: 18rem;\r\n}\r\n\r\n  .card-text {\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap; \r\n  }\r\n\r\n  .buttons-container {\r\n    @include make-container();\r\n  }","@mixin make-container($padding-r-x: 20px, $padding-l-x: 20px, $padding-t-x: 20px, $padding-b-x: 20px, $width-x: 100%) {\r\n    width: $width-x;\r\n    padding-right: $padding-r-x;\r\n    padding-left: $padding-l-x;\r\n    padding-top: $padding-t-x;\r\n    padding-bottom: $padding-b-x;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n  }"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/components/Tasks/Tasks.scss":
+/*!*****************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/components/Tasks/Tasks.scss ***!
+  \*****************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */ "./node_modules/css-loader/dist/runtime/cssWithMappingToString.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".add-task-button-container {\n  width: 100%;\n  padding-right: 20px;\n  padding-left: 20px;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  margin-right: auto;\n  margin-left: auto;\n}", "",{"version":3,"sources":["webpack://./src/client/components/Tasks/Tasks.scss","webpack://./src/client/styles/mixings.scss"],"names":[],"mappings":"AAEA;ECDI,WAD4G;EAE5G,mBAFgC;EAGhC,kBAHoD;EAIpD,iBAJwE;EAKxE,oBAL4F;EAM5F,kBAAA;EACA,iBAAA;ADCJ","sourcesContent":["@import '../../styles/mixings.scss';\r\n\r\n.add-task-button-container {\r\n    @include make-container();\r\n}","@mixin make-container($padding-r-x: 20px, $padding-l-x: 20px, $padding-t-x: 20px, $padding-b-x: 20px, $width-x: 100%) {\r\n    width: $width-x;\r\n    padding-right: $padding-r-x;\r\n    padding-left: $padding-l-x;\r\n    padding-top: $padding-t-x;\r\n    padding-bottom: $padding-b-x;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n  }"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -661,7 +731,81 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_Task_scss__WEBPACK_IMPORTED_MODULE_4__.default && _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_Task_scss__WEBPACK_IMPORTED_MODULE_4__.default.locals ? _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_Task_scss__WEBPACK_IMPORTED_MODULE_4__.default.locals : undefined);
 
 
+/***/ }),
+
+/***/ "./src/client/components/Tasks/Tasks.scss":
+/*!************************************************!*\
+  !*** ./src/client/components/Tasks/Tasks.scss ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/getTarget.js */ "./node_modules/style-loader/dist/runtime/getTarget.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_Tasks_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js!../../../../node_modules/sass-loader/dist/cjs.js!./Tasks.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/components/Tasks/Tasks.scss");
+
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = function(css, style){
+      if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+      } else {
+      while (style.firstChild) {
+        style.removeChild(style.firstChild);
+      }
+
+      style.appendChild(document.createTextNode(css));
+    }
+  };
+options.setAttributes = function(style) {
+        var nonce =
+           true ? __webpack_require__.nc : 0;
+
+        if (nonce) {
+          style.setAttribute("nonce", nonce);
+        }
+      };
+options.insert = function(style){
+    var target = _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2___default()("head");
+
+    if (!target) {
+      throw new Error(
+        "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
+      );
+    }
+
+    target.appendChild(style);
+  };
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_Tasks_scss__WEBPACK_IMPORTED_MODULE_4__.default, options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_Tasks_scss__WEBPACK_IMPORTED_MODULE_4__.default && _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_Tasks_scss__WEBPACK_IMPORTED_MODULE_4__.default.locals ? _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_Tasks_scss__WEBPACK_IMPORTED_MODULE_4__.default.locals : undefined);
+
+
 /***/ })
 
 }]);
-//# sourceMappingURL=tasks.4568b0ced51e7674ecef.js.map
+//# sourceMappingURL=tasks.2e688972917df07c6e4e.js.map
