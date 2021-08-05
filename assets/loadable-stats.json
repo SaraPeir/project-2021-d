@@ -1,16 +1,19 @@
 {
-  "hash": "d6ca00ce7fbaf0581d27",
+  "hash": "93d7002929beed6f4f16",
   "publicPath": "/",
   "outputPath": "C:\\Users\\Sara\\Desktop\\project-2021-d\\assets",
   "assetsByChunkName": {
     "main": [
-      "main.dc7d02a7bcc9999ad78b.js"
+      "main.5cb24c980b7c3dc306c6.js"
     ],
     "manifest": [
-      "manifest.5d4d66a6137a66fbdf0b.js"
+      "manifest.6f056a810b7e4c42acd9.js"
     ],
     "tasks": [
       "tasks.2e688972917df07c6e4e.js"
+    ],
+    "async_weather_form": [
+      "async_weather_form.d20519084c3e7bd725e4.js"
     ],
     "async_weather": [
       "async_weather.b6287a9488d399dec37d.js"
@@ -23,8 +26,8 @@
     {
       "type": "assets by status",
       "cached": true,
-      "filteredChildren": 5,
-      "size": 1833222
+      "filteredChildren": 6,
+      "size": 1839154
     }
   ],
   "namedChunkGroups": {
@@ -37,13 +40,13 @@
       ],
       "assets": [
         {
-          "name": "manifest.5d4d66a6137a66fbdf0b.js"
+          "name": "manifest.6f056a810b7e4c42acd9.js"
         },
         {
           "name": "node_vendors.68cd14cb6565cf65c04c.js"
         },
         {
-          "name": "main.dc7d02a7bcc9999ad78b.js"
+          "name": "main.5cb24c980b7c3dc306c6.js"
         }
       ],
       "filteredAssets": 0,
@@ -74,6 +77,23 @@
       "children": {},
       "childAssets": {}
     },
+    "async_weather_form": {
+      "name": "async_weather_form",
+      "chunks": [
+        "async_weather_form"
+      ],
+      "assets": [
+        {
+          "name": "async_weather_form.d20519084c3e7bd725e4.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 1,
+      "auxiliaryAssetsSize": null,
+      "children": {},
+      "childAssets": {}
+    },
     "async_weather": {
       "name": "async_weather",
       "chunks": [
@@ -97,19 +117,25 @@
     {
       "id": "main",
       "files": [
-        "main.dc7d02a7bcc9999ad78b.js"
+        "main.5cb24c980b7c3dc306c6.js"
       ]
     },
     {
       "id": "manifest",
       "files": [
-        "manifest.5d4d66a6137a66fbdf0b.js"
+        "manifest.6f056a810b7e4c42acd9.js"
       ]
     },
     {
       "id": "tasks",
       "files": [
         "tasks.2e688972917df07c6e4e.js"
+      ]
+    },
+    {
+      "id": "async_weather_form",
+      "files": [
+        "async_weather_form.d20519084c3e7bd725e4.js"
       ]
     },
     {

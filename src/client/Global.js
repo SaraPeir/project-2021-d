@@ -1,6 +1,7 @@
 import React from "react"
 import Tasks from './components/Tasks'
 import Accordion from './components/Accordion'
+import WeatherForm from './asyncComponents/WeatherForm'
 import Weather from './asyncComponents/Weather'
 import { useSelector, useDispatch } from 'react-redux'
 import { showWeather } from '../redux/slices/weatherShower'
@@ -11,6 +12,8 @@ const Global = (props) => {
         return state.weatherShower.value
     })
 
+    const dispatch = useDispatch()
+
     const weather = () => {
         if(isWeatherDisplayed) {
             return <Weather />
@@ -18,24 +21,34 @@ const Global = (props) => {
         return;
     }
 
-    const dispatch = useDispatch()
+    const WeatherContent = () => {
+        return(
+            <React.Fragment>
+                <WeatherForm /> 
+                {weather()} 
+            </React.Fragment>
+        )
+    }
 
     const buttonContents = [
-        'Button content 1', 'Button content 2'
+        'El tiempo en España'
     ]
 
     const bodyContents = [
-        'Body contents 1', 'Body content 2'
+        <WeatherContent />
     ]
 
     return(
         <React.Fragment>
             <button onClick={() => dispatch(showWeather())}>See how miss to 2022</button>
-            {weather()}
-
-            
-
-            <Accordion label={'labelA'} parentId={'parendA'} target={'targetA'} n={2} buttonContents={buttonContents} bodyContents={bodyContents} />
+            <Accordion 
+                label={'labelA'} 
+                parentId={'parendA'} 
+                target={'targetA'} 
+                n={1} 
+                buttonContents={buttonContents} 
+                bodyContents={bodyContents} 
+            />
             <Tasks />
         </React.Fragment>
     )
