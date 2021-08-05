@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const countdownShowerSlice = createSlice({
-  name: 'countdownShower',
+export const weatherShowerSlice = createSlice({
+  name: 'weatherShower',
   initialState: {
     value: true,
   },
   reducers: {
-    showCountdown: (state) => {
+    showWeather: (state) => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
@@ -24,6 +24,6 @@ export const countdownShowerSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { showCountdown } = countdownShowerSlice.actions
+export const { showWeather } = weatherShowerSlice.actions
 
-export default countdownShowerSlice.reducer
+export default weatherShowerSlice.reducer

@@ -1,32 +1,42 @@
 import React from "react"
 import Tasks from './components/Tasks'
-import Countdown from './asyncComponents/Countdown'
+import Accordion from './components/Accordion'
+import Weather from './asyncComponents/Weather'
 import { useSelector, useDispatch } from 'react-redux'
-import { showCountdown } from '../redux/slices/countdownShower'
+import { showWeather } from '../redux/slices/weatherShower'
 
 const Global = (props) => {
-    const isCountdownDisplayed = useSelector((state) => {
+    const isWeatherDisplayed = useSelector((state) => {
         console.log('state', state)
-        return state.countdownShower.value
+        return state.weatherShower.value
     })
 
-    const countdown = () => {
-        if(isCountdownDisplayed) {
-            return <Countdown />
+    const weather = () => {
+        if(isWeatherDisplayed) {
+            return <Weather />
         }
         return;
     }
 
-    const arrayFromFetch = props.arrayFromFetch;
-    const showInConsole = (arrayFromFetch) => console.log(arrayFromFetch);
     const dispatch = useDispatch()
+
+    const buttonContents = [
+        'Button content 1', 'Button content 2'
+    ]
+
+    const bodyContents = [
+        'Body contents 1', 'Body content 2'
+    ]
 
     return(
         <React.Fragment>
-            <button onClick={() => dispatch(showCountdown())}>See how miss to 2022</button>
+            <button onClick={() => dispatch(showWeather())}>See how miss to 2022</button>
+            {weather()}
+
+            
+
+            <Accordion label={'labelA'} parentId={'parendA'} target={'targetA'} n={2} buttonContents={buttonContents} bodyContents={bodyContents} />
             <Tasks />
-            {countdown()}
-            {showInConsole(arrayFromFetch)}
         </React.Fragment>
     )
 }

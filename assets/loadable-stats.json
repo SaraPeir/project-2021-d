@@ -1,33 +1,30 @@
 {
-  "hash": "442e403ba098376f1e22",
+  "hash": "d6ca00ce7fbaf0581d27",
   "publicPath": "/",
   "outputPath": "C:\\Users\\Sara\\Desktop\\project-2021-d\\assets",
   "assetsByChunkName": {
     "main": [
-      "main.3e8d5af4a9972024152b.js"
+      "main.dc7d02a7bcc9999ad78b.js"
     ],
     "manifest": [
-      "manifest.119685568d5a78b1f9e5.js"
+      "manifest.5d4d66a6137a66fbdf0b.js"
     ],
     "tasks": [
       "tasks.2e688972917df07c6e4e.js"
     ],
-    "async_countdown": [
-      "async_countdown.e33fefa6f93759a13cd6.js"
+    "async_weather": [
+      "async_weather.b6287a9488d399dec37d.js"
     ],
     "node_vendors": [
       "node_vendors.68cd14cb6565cf65c04c.js"
-    ],
-    "shared_vendors": [
-      "shared_vendors.c2b55e0e64fe6ccbe679.js"
     ]
   },
   "assets": [
     {
       "type": "assets by status",
       "cached": true,
-      "filteredChildren": 6,
-      "size": 1841728
+      "filteredChildren": 5,
+      "size": 1833222
     }
   ],
   "namedChunkGroups": {
@@ -40,13 +37,13 @@
       ],
       "assets": [
         {
-          "name": "manifest.119685568d5a78b1f9e5.js"
+          "name": "manifest.5d4d66a6137a66fbdf0b.js"
         },
         {
           "name": "node_vendors.68cd14cb6565cf65c04c.js"
         },
         {
-          "name": "main.3e8d5af4a9972024152b.js"
+          "name": "main.dc7d02a7bcc9999ad78b.js"
         }
       ],
       "filteredAssets": 0,
@@ -77,27 +74,19 @@
       "children": {},
       "childAssets": {}
     },
-    "async_countdown": {
-      "name": "async_countdown",
+    "async_weather": {
+      "name": "async_weather",
       "chunks": [
-        "node_vendors",
-        "shared_vendors",
-        "async_countdown"
+        "async_weather"
       ],
       "assets": [
         {
-          "name": "node_vendors.68cd14cb6565cf65c04c.js"
-        },
-        {
-          "name": "shared_vendors.c2b55e0e64fe6ccbe679.js"
-        },
-        {
-          "name": "async_countdown.e33fefa6f93759a13cd6.js"
+          "name": "async_weather.b6287a9488d399dec37d.js"
         }
       ],
       "filteredAssets": 0,
       "assetsSize": null,
-      "filteredAuxiliaryAssets": 3,
+      "filteredAuxiliaryAssets": 1,
       "auxiliaryAssetsSize": null,
       "children": {},
       "childAssets": {}
@@ -108,13 +97,13 @@
     {
       "id": "main",
       "files": [
-        "main.3e8d5af4a9972024152b.js"
+        "main.dc7d02a7bcc9999ad78b.js"
       ]
     },
     {
       "id": "manifest",
       "files": [
-        "manifest.119685568d5a78b1f9e5.js"
+        "manifest.5d4d66a6137a66fbdf0b.js"
       ]
     },
     {
@@ -124,21 +113,15 @@
       ]
     },
     {
-      "id": "async_countdown",
+      "id": "async_weather",
       "files": [
-        "async_countdown.e33fefa6f93759a13cd6.js"
+        "async_weather.b6287a9488d399dec37d.js"
       ]
     },
     {
       "id": "node_vendors",
       "files": [
         "node_vendors.68cd14cb6565cf65c04c.js"
-      ]
-    },
-    {
-      "id": "shared_vendors",
-      "files": [
-        "shared_vendors.c2b55e0e64fe6ccbe679.js"
       ]
     }
   ]

@@ -4,10 +4,9 @@ import store from '../redux/store'
 import Global from "./Global"
 
 const App = (props) => {
-    console.log('props.arrayFromFetch', props.arrayFromFetch)
     return(
         <Provider store={store}>
-            <Global arrayFromFetch={props.arrayFromFetch} />
+            <Global provinces={props.provinces} />
         </Provider>
     )
 }

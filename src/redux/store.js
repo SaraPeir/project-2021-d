@@ -1,10 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from './slices/counter'
-import countdownShowerReducer from './slices/countdownShower'
+import weatherShowerReducer from './slices/weatherShower'
 
 export default configureStore({
   reducer: {
-      counter: counterReducer,
-      countdownShower: countdownShowerReducer
+      weatherShower: weatherShowerReducer
   },
 })
