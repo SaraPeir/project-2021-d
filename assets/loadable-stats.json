@@ -1,25 +1,25 @@
 {
-  "hash": "93d7002929beed6f4f16",
+  "hash": "baf9d6cfacaa5b42f841",
   "publicPath": "/",
   "outputPath": "C:\\Users\\Sara\\Desktop\\project-2021-d\\assets",
   "assetsByChunkName": {
     "main": [
-      "main.5cb24c980b7c3dc306c6.js"
+      "main.aeab69231a0940af830e.js"
     ],
     "manifest": [
-      "manifest.6f056a810b7e4c42acd9.js"
+      "manifest.da8fdc4f140952b55634.js"
     ],
     "tasks": [
       "tasks.2e688972917df07c6e4e.js"
     ],
     "async_weather_form": [
-      "async_weather_form.d20519084c3e7bd725e4.js"
+      "async_weather_form.3b4a197fe9b64cd1a9ed.js"
     ],
     "async_weather": [
       "async_weather.b6287a9488d399dec37d.js"
     ],
     "node_vendors": [
-      "node_vendors.68cd14cb6565cf65c04c.js"
+      "node_vendors.d7119f2ff6fd24cb8e52.js"
     ]
   },
   "assets": [
@@ -27,7 +27,7 @@
       "type": "assets by status",
       "cached": true,
       "filteredChildren": 6,
-      "size": 1839154
+      "size": 1924856
     }
   ],
   "namedChunkGroups": {
@@ -40,13 +40,13 @@
       ],
       "assets": [
         {
-          "name": "manifest.6f056a810b7e4c42acd9.js"
+          "name": "manifest.da8fdc4f140952b55634.js"
         },
         {
-          "name": "node_vendors.68cd14cb6565cf65c04c.js"
+          "name": "node_vendors.d7119f2ff6fd24cb8e52.js"
         },
         {
-          "name": "main.5cb24c980b7c3dc306c6.js"
+          "name": "main.aeab69231a0940af830e.js"
         }
       ],
       "filteredAssets": 0,
@@ -64,7 +64,7 @@
       ],
       "assets": [
         {
-          "name": "node_vendors.68cd14cb6565cf65c04c.js"
+          "name": "node_vendors.d7119f2ff6fd24cb8e52.js"
         },
         {
           "name": "tasks.2e688972917df07c6e4e.js"
@@ -84,7 +84,7 @@
       ],
       "assets": [
         {
-          "name": "async_weather_form.d20519084c3e7bd725e4.js"
+          "name": "async_weather_form.3b4a197fe9b64cd1a9ed.js"
         }
       ],
       "filteredAssets": 0,
@@ -117,13 +117,13 @@
     {
       "id": "main",
       "files": [
-        "main.5cb24c980b7c3dc306c6.js"
+        "main.aeab69231a0940af830e.js"
       ]
     },
     {
       "id": "manifest",
       "files": [
-        "manifest.6f056a810b7e4c42acd9.js"
+        "manifest.da8fdc4f140952b55634.js"
       ]
     },
     {
@@ -135,7 +135,7 @@
     {
       "id": "async_weather_form",
       "files": [
-        "async_weather_form.d20519084c3e7bd725e4.js"
+        "async_weather_form.3b4a197fe9b64cd1a9ed.js"
       ]
     },
     {
@@ -147,7 +147,7 @@
     {
       "id": "node_vendors",
       "files": [
-        "node_vendors.68cd14cb6565cf65c04c.js"
+        "node_vendors.d7119f2ff6fd24cb8e52.js"
       ]
     }
   ]

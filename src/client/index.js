@@ -33,7 +33,7 @@ client
 export default loadableReady(() => {
     hydrate(
       <ApolloProvider client={client}>
-        <App provinces={window.__PROVINCES__} />
+        <App provinces={window.__INITIAL_PROVINCES__} />
       </ApolloProvider>,
       document.getElementById('app'),
     );

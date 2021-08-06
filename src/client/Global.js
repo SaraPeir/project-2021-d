@@ -5,9 +5,10 @@ import WeatherForm from './asyncComponents/WeatherForm'
 import Weather from './asyncComponents/Weather'
 import { useSelector, useDispatch } from 'react-redux'
 import { showWeather } from '../redux/slices/weatherShower'
+import {fetchWeatherThunk} from '../redux/slices/fetchWeather'
 
-const Global = (props) => {
-    const isWeatherDisplayed = useSelector((state) => {
+const Global = ({provinces}) => {
+    const isWeatherDisplayed = useSelector(async (state) => {
         console.log('state', state)
         return state.weatherShower.value
     })
@@ -24,7 +25,7 @@ const Global = (props) => {
     const WeatherContent = () => {
         return(
             <React.Fragment>
-                <WeatherForm /> 
+                <WeatherForm provinces={provinces} /> 
                 {weather()} 
             </React.Fragment>
         )
@@ -41,7 +42,8 @@ const Global = (props) => {
     return(
         <React.Fragment>
             <button onClick={() => dispatch(showWeather())}>See how miss to 2022</button>
-            <Accordion 
+            <button onClick={() => dispatch(fetchWeatherThunk('21'))}>fetch weather</button>
+            <Accordion
                 label={'labelA'} 
                 parentId={'parendA'} 
                 target={'targetA'} 
