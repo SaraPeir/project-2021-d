@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const WeatherForm = ({provinces}) => {
+const WeatherForm = ({provinces, onHandleSubmit}) => {
     const options = [];
 
     for (let i = 1; i <= provinces.length; i++) {
@@ -14,12 +14,15 @@ const WeatherForm = ({provinces}) => {
             onSubmit={e => {
                 e.preventDefault();
                 console.log('HOLAAA')
+                onHandleSubmit()
                 }}
         >
             <div class="mb-3">
                 <label htmlFor="provinceSelect" class="form-label">Selecciona la provincia</label>
 
-                <select class="form-select" aria-label="provinceSelect">
+                <select class="form-select" aria-label="provinceSelect" onChange={e => {
+                    console.log('e.target.value', e.target.value)
+                } }>
                    {options}
                 </select>
 

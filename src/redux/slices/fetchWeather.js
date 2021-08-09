@@ -3,6 +3,7 @@ import axios from 'axios'
 
 // thunk (necessary to fetch and handle promises)
 // https://redux-toolkit.js.org/api/createAsyncThunk
+// https://stackoverflow.com/questions/60316251/how-to-use-redux-thunk-with-redux-toolkits-createslice
 const fetchWeatherThunk = createAsyncThunk(
     'fetchWeather/fetchByProvId',
     async (id, thunkAPI) => {
