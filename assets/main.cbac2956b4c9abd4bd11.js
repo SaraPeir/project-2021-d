@@ -1,6 +1,6 @@
 (self["__LOADABLE_LOADED_CHUNKS__"] = self["__LOADABLE_LOADED_CHUNKS__"] || []).push([["main"],{
 
-/***/ "./src/client/App.js":
+/***/ 6240:
 /*!***************************!*\
   !*** ./src/client/App.js ***!
   \***************************/
@@ -11,10 +11,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _redux_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../redux/store */ "./src/redux/store.js");
-/* harmony import */ var _Global__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Global */ "./src/client/Global.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ 5466);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ 5514);
+/* harmony import */ var _redux_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../redux/store */ 844);
+/* harmony import */ var _Global__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Global */ 6634);
 
 
 
@@ -32,7 +32,7 @@ var App = function App(props) {
 
 /***/ }),
 
-/***/ "./src/client/Global.js":
+/***/ 6634:
 /*!******************************!*\
   !*** ./src/client/Global.js ***!
   \******************************/
@@ -43,20 +43,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components_Tasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Tasks */ "./src/client/components/Tasks/index.js");
-/* harmony import */ var _components_Accordion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Accordion */ "./src/client/components/Accordion/index.js");
-/* harmony import */ var _asyncComponents_WeatherForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./asyncComponents/WeatherForm */ "./src/client/asyncComponents/WeatherForm/index.js");
-/* harmony import */ var _asyncComponents_Weather__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./asyncComponents/Weather */ "./src/client/asyncComponents/Weather/index.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ 5466);
+/* harmony import */ var _components_Tasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Tasks */ 8815);
+/* harmony import */ var _components_Accordion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Accordion */ 4815);
+/* harmony import */ var _asyncComponents_WeatherForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./asyncComponents/WeatherForm */ 1244);
+/* harmony import */ var _asyncComponents_Weather__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./asyncComponents/Weather */ 2716);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ 5514);
 
 
 
 
 
 
-/* import { showWeather } from '../redux/slices/weatherShower'
-import {fetchWeatherThunk} from '../redux/slices/fetchWeather' */
 
 var Global = function Global(_ref) {
   var provinces = _ref.provinces;
@@ -66,6 +64,7 @@ var Global = function Global(_ref) {
   });
 
   var weather = function weather() {
+    // Weather component bundle is loaded only when isWeatherDisplayed is true (verify it in Chrome Network)
     if (isWeatherDisplayed) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_asyncComponents_Weather__WEBPACK_IMPORTED_MODULE_4__.default, null);
     }
@@ -82,9 +81,9 @@ var Global = function Global(_ref) {
   var buttonContents = ['El tiempo en España'];
   var bodyContents = [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(WeatherContent, null)];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Accordion__WEBPACK_IMPORTED_MODULE_2__.default, {
-    label: 'labelA',
-    parentId: 'parendA',
-    target: 'targetA',
+    label: 'weather-label',
+    parentId: 'weather-parend',
+    target: 'weather-target',
     n: 1,
     buttonContents: buttonContents,
     bodyContents: bodyContents
@@ -95,7 +94,7 @@ var Global = function Global(_ref) {
 
 /***/ }),
 
-/***/ "./src/client/asyncComponents/WeatherForm/AsyncWeatherForm.js":
+/***/ 1760:
 /*!********************************************************************!*\
   !*** ./src/client/asyncComponents/WeatherForm/AsyncWeatherForm.js ***!
   \********************************************************************/
@@ -106,7 +105,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _loadable_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @loadable/component */ "./node_modules/@loadable/component/dist/loadable.esm.js");
+/* harmony import */ var _loadable_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @loadable/component */ 6575);
  // Weather component is loaded by webpack only if user can see it. 
 // It's not included in main bundle any more
 
@@ -131,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
   importAsync: function importAsync() {
     return (// When import() is used Webpack creates a new chunk for the imported code, splitting it from the main bundle.
       // (https://medium.com/swlh/an-introduction-to-webpack-code-splitting-loadable-component-and-resource-hints-f0c3a3e45ce4)
-      Promise.all(/*! import() | async_weather_form */[__webpack_require__.e("node_vendors"), __webpack_require__.e("async_weather_form")]).then(__webpack_require__.bind(__webpack_require__, /*! ./WeatherForm */ "./src/client/asyncComponents/WeatherForm/WeatherForm.js"))
+      Promise.all(/*! import() | async_weather_form */[__webpack_require__.e("node_vendors"), __webpack_require__.e("async_weather_form")]).then(__webpack_require__.bind(__webpack_require__, /*! ./WeatherForm */ 6579))
     );
   },
   requireAsync: function requireAsync(props) {
@@ -155,7 +154,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   resolve: function resolve() {
     if (true) {
-      return /*require.resolve*/(/*! ./WeatherForm */ "./src/client/asyncComponents/WeatherForm/WeatherForm.js");
+      return /*require.resolve*/(/*! ./WeatherForm */ 6579);
     }
 
     return eval('require.resolve')("./WeatherForm");
@@ -166,7 +165,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/client/asyncComponents/WeatherForm/index.js":
+/***/ 1244:
 /*!*********************************************************!*\
   !*** ./src/client/asyncComponents/WeatherForm/index.js ***!
   \*********************************************************/
@@ -177,13 +176,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _AsyncWeatherForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AsyncWeatherForm */ "./src/client/asyncComponents/WeatherForm/AsyncWeatherForm.js");
+/* harmony import */ var _AsyncWeatherForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AsyncWeatherForm */ 1760);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_AsyncWeatherForm__WEBPACK_IMPORTED_MODULE_0__.default);
 
 /***/ }),
 
-/***/ "./src/client/asyncComponents/Weather/AsyncWeather.js":
+/***/ 8554:
 /*!************************************************************!*\
   !*** ./src/client/asyncComponents/Weather/AsyncWeather.js ***!
   \************************************************************/
@@ -194,7 +193,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _loadable_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @loadable/component */ "./node_modules/@loadable/component/dist/loadable.esm.js");
+/* harmony import */ var _loadable_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @loadable/component */ 6575);
  // Weather component is loaded by webpack only if user can see it. 
 // It's not included in main bundle any more
 
@@ -219,7 +218,7 @@ __webpack_require__.r(__webpack_exports__);
   importAsync: function importAsync() {
     return (// When import() is used Webpack creates a new chunk for the imported code, splitting it from the main bundle.
       // (https://medium.com/swlh/an-introduction-to-webpack-code-splitting-loadable-component-and-resource-hints-f0c3a3e45ce4)
-      __webpack_require__.e(/*! import() | async_weather */ "async_weather").then(__webpack_require__.bind(__webpack_require__, /*! ./Weather */ "./src/client/asyncComponents/Weather/Weather.js"))
+      __webpack_require__.e(/*! import() | async_weather */ "async_weather").then(__webpack_require__.bind(__webpack_require__, /*! ./Weather */ 7987))
     );
   },
   requireAsync: function requireAsync(props) {
@@ -243,7 +242,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   resolve: function resolve() {
     if (true) {
-      return /*require.resolve*/(/*! ./Weather */ "./src/client/asyncComponents/Weather/Weather.js");
+      return /*require.resolve*/(/*! ./Weather */ 7987);
     }
 
     return eval('require.resolve')("./Weather");
@@ -254,7 +253,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/client/asyncComponents/Weather/index.js":
+/***/ 2716:
 /*!*****************************************************!*\
   !*** ./src/client/asyncComponents/Weather/index.js ***!
   \*****************************************************/
@@ -265,13 +264,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _AsyncWeather__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AsyncWeather */ "./src/client/asyncComponents/Weather/AsyncWeather.js");
+/* harmony import */ var _AsyncWeather__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AsyncWeather */ 8554);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_AsyncWeather__WEBPACK_IMPORTED_MODULE_0__.default);
 
 /***/ }),
 
-/***/ "./src/client/components/Accordion/Accordion.js":
+/***/ 4742:
 /*!******************************************************!*\
   !*** ./src/client/components/Accordion/Accordion.js ***!
   \******************************************************/
@@ -282,7 +281,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ 5466);
 
 
 var Item = function Item(_ref) {
@@ -345,7 +344,7 @@ var Accordion = function Accordion(_ref2) {
 
 /***/ }),
 
-/***/ "./src/client/components/Accordion/index.js":
+/***/ 4815:
 /*!**************************************************!*\
   !*** ./src/client/components/Accordion/index.js ***!
   \**************************************************/
@@ -356,13 +355,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Accordion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Accordion */ "./src/client/components/Accordion/Accordion.js");
+/* harmony import */ var _Accordion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Accordion */ 4742);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_Accordion__WEBPACK_IMPORTED_MODULE_0__.default);
 
 /***/ }),
 
-/***/ "./src/client/components/Tasks/index.js":
+/***/ 8815:
 /*!**********************************************!*\
   !*** ./src/client/components/Tasks/index.js ***!
   \**********************************************/
@@ -373,7 +372,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _loadable_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @loadable/component */ "./node_modules/@loadable/component/dist/loadable.esm.js");
+/* harmony import */ var _loadable_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @loadable/component */ 6575);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_loadable_component__WEBPACK_IMPORTED_MODULE_0__.default)({
   resolved: {},
@@ -394,7 +393,7 @@ __webpack_require__.r(__webpack_exports__);
     return false;
   },
   importAsync: function importAsync() {
-    return Promise.all(/*! import() | tasks */[__webpack_require__.e("node_vendors"), __webpack_require__.e("tasks")]).then(__webpack_require__.bind(__webpack_require__, /*! ./Tasks */ "./src/client/components/Tasks/Tasks.js"));
+    return Promise.all(/*! import() | tasks */[__webpack_require__.e("node_vendors"), __webpack_require__.e("tasks")]).then(__webpack_require__.bind(__webpack_require__, /*! ./Tasks */ 5810));
   },
   requireAsync: function requireAsync(props) {
     var _this = this;
@@ -417,7 +416,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   resolve: function resolve() {
     if (true) {
-      return /*require.resolve*/(/*! ./Tasks */ "./src/client/components/Tasks/Tasks.js");
+      return /*require.resolve*/(/*! ./Tasks */ 5810);
     }
 
     return eval('require.resolve')("./Tasks");
@@ -428,7 +427,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/client/index.js":
+/***/ 1911:
 /*!*****************************!*\
   !*** ./src/client/index.js ***!
   \*****************************/
@@ -439,13 +438,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ "./src/client/App.js");
-/* harmony import */ var _loadable_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @loadable/component */ "./node_modules/@loadable/component/dist/loadable.esm.js");
-/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/core/ApolloClient.js");
-/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/cache/inmemory/inMemoryCache.js");
-/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ 5466);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ 6116);
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ 6240);
+/* harmony import */ var _loadable_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @loadable/component */ 6575);
+/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/client */ 134);
+/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @apollo/client */ 510);
+/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @apollo/client */ 7037);
 
 
 
@@ -465,7 +464,7 @@ var client = new _apollo_client__WEBPACK_IMPORTED_MODULE_4__.ApolloClient({
 
 /***/ }),
 
-/***/ "./src/redux/slices/fetchWeather.js":
+/***/ 3429:
 /*!******************************************!*\
   !*** ./src/redux/slices/fetchWeather.js ***!
   \******************************************/
@@ -478,12 +477,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "fetchWeatherThunk": () => (/* binding */ fetchWeatherThunk),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 7692);
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 7004);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/regenerator */ 4264);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @reduxjs/toolkit */ 1721);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ 4559);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 
 
@@ -567,7 +566,7 @@ var fetchWeatherSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createS
 
 /***/ }),
 
-/***/ "./src/redux/slices/weatherShower.js":
+/***/ 455:
 /*!*******************************************!*\
   !*** ./src/redux/slices/weatherShower.js ***!
   \*******************************************/
@@ -580,8 +579,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "showWeather": () => (/* binding */ showWeather),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 7692);
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @reduxjs/toolkit */ 1721);
 
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -634,7 +633,7 @@ var showWeather = weatherShowerSlice.actions.showWeather;
 
 /***/ }),
 
-/***/ "./src/redux/store.js":
+/***/ 844:
 /*!****************************!*\
   !*** ./src/redux/store.js ***!
   \****************************/
@@ -645,9 +644,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
-/* harmony import */ var _slices_weatherShower__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slices/weatherShower */ "./src/redux/slices/weatherShower.js");
-/* harmony import */ var _slices_fetchWeather__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./slices/fetchWeather */ "./src/redux/slices/fetchWeather.js");
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @reduxjs/toolkit */ 1721);
+/* harmony import */ var _slices_weatherShower__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slices/weatherShower */ 455);
+/* harmony import */ var _slices_fetchWeather__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./slices/fetchWeather */ 3429);
 
 
 
@@ -669,8 +668,8 @@ __webpack_require__.r(__webpack_exports__);
 /******/ "use strict";
 /******/ 
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ __webpack_require__.O(0, ["node_vendors"], () => (__webpack_exec__("./src/client/index.js")));
+/******/ __webpack_require__.O(0, ["node_vendors"], () => (__webpack_exec__(1911)));
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
-//# sourceMappingURL=main.9dbbf82e53d61a2f23e7.js.map
+//# sourceMappingURL=main.cbac2956b4c9abd4bd11.js.map

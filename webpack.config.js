@@ -13,20 +13,22 @@ const loaderOptionPlugin = new LoaderOptionsPlugin({
   debug: true,
 })
 
+// To visualize the webpack output bundle files 
+// in terms of interactive zoomable treemap
 const bundleAnalyzerPlugin = new BundleAnalyzerPlugin()
 
 const browserConfig = {
   entry: './src/client/index.js',
+
+  // to display the original JavaScript while debugging instead of the minified code
   devtool: 'source-map',
+
+  // to get visual updates to any change from the code
   watch: true,
   output: {
     path: path.resolve(__dirname, 'assets'),
     publicPath: '/',
     filename: "[name].[contenthash].js"
-  },
-  devServer: {
-    port: 3000,
-    watchContentBase: true
   },
   module: {
     rules: [
@@ -34,6 +36,8 @@ const browserConfig = {
       {
         test: /\.s(c)ss$/,
         use: [devMode ? 'style-loader' : miniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+        // Added miniCssExtractPlugin, to create a bundle apart for style sheets and 
+        // embed them directly in html and avoid FOUC
         // I cannot use style-loader and miniCssExtractPlugin loader in the same time, otherwise I get the error:
         // ReferenceError: document is not defined at insertStyleElement 
         // (https://github.com/webpack-contrib/style-loader/issues/439#issuecomment-566946315)
@@ -43,7 +47,11 @@ const browserConfig = {
   },
   plugins: [new LoadablePlugin(), loaderOptionPlugin, bundleAnalyzerPlugin, new Dotenv()],
   optimization: {
-    moduleIds: 'named',
+    // optimization.moduleIds = "deterministic" to avoid changes related to resolving order by default 
+    // (https://webpack.js.org/guides/caching/)
+    moduleIds: 'deterministic',
+
+    // manifest is bundled apart to get a better caching with contenthash
     runtimeChunk: {
       name: "manifest",
    }, 
@@ -81,7 +89,7 @@ const serverConfig = {
       {
         test: /\.s(c)ss$/,
         loader: 'ignore-loader'
-        // style files are ignored by server, since they are parsed only bu browser
+        // style files are ignored by server, since they are parsed only by browser
       },
     ]
   },

@@ -4,8 +4,6 @@ import Accordion from './components/Accordion'
 import WeatherForm from './asyncComponents/WeatherForm'
 import Weather from './asyncComponents/Weather'
 import { useSelector } from 'react-redux'
-/* import { showWeather } from '../redux/slices/weatherShower'
-import {fetchWeatherThunk} from '../redux/slices/fetchWeather' */
 
 const Global = ({provinces}) => {
     const isWeatherDisplayed = useSelector((state) => {
@@ -14,6 +12,7 @@ const Global = ({provinces}) => {
     })
 
     const weather = () => {
+        // Weather component bundle is loaded only when isWeatherDisplayed is true (verify it in Chrome Network)
         if(isWeatherDisplayed) {
             return <Weather />
         }
@@ -42,9 +41,9 @@ const Global = ({provinces}) => {
     return(
         <React.Fragment>
             <Accordion
-                label={'labelA'} 
-                parentId={'parendA'} 
-                target={'targetA'} 
+                label={'weather-label'} 
+                parentId={'weather-parend'} 
+                target={'weather-target'} 
                 n={1} 
                 buttonContents={buttonContents} 
                 bodyContents={bodyContents} 

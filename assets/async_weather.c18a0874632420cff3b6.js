@@ -1,6 +1,6 @@
 (self["__LOADABLE_LOADED_CHUNKS__"] = self["__LOADABLE_LOADED_CHUNKS__"] || []).push([["async_weather"],{
 
-/***/ "./src/client/asyncComponents/Weather/Weather.js":
+/***/ 7987:
 /*!*******************************************************!*\
   !*** ./src/client/asyncComponents/Weather/Weather.js ***!
   \*******************************************************/
@@ -11,7 +11,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ 5466);
 
 
 var Weather = function Weather() {
@@ -23,4 +23,4 @@ var Weather = function Weather() {
 /***/ })
 
 }]);
-//# sourceMappingURL=async_weather.b6287a9488d399dec37d.js.map
+//# sourceMappingURL=async_weather.c18a0874632420cff3b6.js.map
