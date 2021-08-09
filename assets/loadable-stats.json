@@ -1,19 +1,19 @@
 {
-  "hash": "1a38efcafdfe09da6243",
+  "hash": "c4ae9fad2c0e52b06f3e",
   "publicPath": "/",
   "outputPath": "C:\\Users\\Sara\\Desktop\\project-2021-d\\assets",
   "assetsByChunkName": {
     "main": [
-      "main.108256cf3a85c2937083.js"
+      "main.9dbbf82e53d61a2f23e7.js"
     ],
     "manifest": [
-      "manifest.a66c27eb43f7f9d3defd.js"
+      "manifest.47314e265e5206362f4f.js"
     ],
     "tasks": [
       "tasks.2e688972917df07c6e4e.js"
     ],
     "async_weather_form": [
-      "async_weather_form.fa94859d3421a0829681.js"
+      "async_weather_form.c705abcb1196690b55ed.js"
     ],
     "async_weather": [
       "async_weather.b6287a9488d399dec37d.js"
@@ -27,7 +27,7 @@
       "type": "assets by status",
       "cached": true,
       "filteredChildren": 6,
-      "size": 1923603
+      "size": 1924069
     }
   ],
   "namedChunkGroups": {
@@ -40,13 +40,13 @@
       ],
       "assets": [
         {
-          "name": "manifest.a66c27eb43f7f9d3defd.js"
+          "name": "manifest.47314e265e5206362f4f.js"
         },
         {
           "name": "node_vendors.d7119f2ff6fd24cb8e52.js"
         },
         {
-          "name": "main.108256cf3a85c2937083.js"
+          "name": "main.9dbbf82e53d61a2f23e7.js"
         }
       ],
       "filteredAssets": 0,
@@ -80,16 +80,20 @@
     "async_weather_form": {
       "name": "async_weather_form",
       "chunks": [
+        "node_vendors",
         "async_weather_form"
       ],
       "assets": [
         {
-          "name": "async_weather_form.fa94859d3421a0829681.js"
+          "name": "node_vendors.d7119f2ff6fd24cb8e52.js"
+        },
+        {
+          "name": "async_weather_form.c705abcb1196690b55ed.js"
         }
       ],
       "filteredAssets": 0,
       "assetsSize": null,
-      "filteredAuxiliaryAssets": 1,
+      "filteredAuxiliaryAssets": 2,
       "auxiliaryAssetsSize": null,
       "children": {},
       "childAssets": {}
@@ -117,13 +121,13 @@
     {
       "id": "main",
       "files": [
-        "main.108256cf3a85c2937083.js"
+        "main.9dbbf82e53d61a2f23e7.js"
       ]
     },
     {
       "id": "manifest",
       "files": [
-        "manifest.a66c27eb43f7f9d3defd.js"
+        "manifest.47314e265e5206362f4f.js"
       ]
     },
     {
@@ -135,7 +139,7 @@
     {
       "id": "async_weather_form",
       "files": [
-        "async_weather_form.fa94859d3421a0829681.js"
+        "async_weather_form.c705abcb1196690b55ed.js"
       ]
     },
     {

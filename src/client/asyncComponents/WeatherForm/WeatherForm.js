@@ -1,8 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { showWeather } from '../../../redux/slices/weatherShower'
+import {fetchWeatherThunk} from '../../../redux/slices/fetchWeather'
+import { useDispatch } from 'react-redux'
 
+const WeatherForm = ({provinces}) => {
+    let options = [];
+    let codProv;
+    const dispatch = useDispatch()
+    const [optionValue, setOptionValue] = useState(undefined);
 
-const WeatherForm = ({provinces, onHandleSubmit}) => {
-    const options = [];
+    if(optionValue) {
+        const selectedProvince = provinces.find(prov => prov.CAPITAL_PROVINCIA === optionValue)
+        codProv = selectedProvince.CODPROV
+    }
 
     for (let i = 1; i <= provinces.length; i++) {
         options.push(
@@ -13,16 +23,14 @@ const WeatherForm = ({provinces, onHandleSubmit}) => {
         <form 
             onSubmit={e => {
                 e.preventDefault();
-                console.log('HOLAAA')
-                onHandleSubmit()
+                dispatch(fetchWeatherThunk(codProv))
+                dispatch(showWeather())
                 }}
         >
             <div class="mb-3">
                 <label htmlFor="provinceSelect" class="form-label">Selecciona la provincia</label>
 
-                <select class="form-select" aria-label="provinceSelect" onChange={e => {
-                    console.log('e.target.value', e.target.value)
-                } }>
+                <select class="form-select" aria-label="provinceSelect" onChange={e => setOptionValue(e.target.value)}>
                    {options}
                 </select>
 

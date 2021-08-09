@@ -11,8 +11,27 @@ export const weatherShowerSlice = createSlice({
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      /* console.log('state.value', state.value)
-      return !state.value || !state */
+
+      return {
+        ...state,
+        value: true
+      }
+      
+    },
+  },
+})
+
+/* export const weatherShowerSlice = createSlice({
+  name: 'weatherShower',
+  initialState: {
+    value: false,
+  },
+  reducers: {
+    showWeather: (state) => {
+      // Redux Toolkit allows us to write "mutating" logic in reducers. It
+      // doesn't actually mutate the state because it uses the Immer library,
+      // which detects changes to a "draft state" and produces a brand new
+      // immutable state based off those changes
 
       return {
         ...state,
@@ -21,7 +40,7 @@ export const weatherShowerSlice = createSlice({
       
     },
   },
-})
+}) */
 
 // Action creators are generated for each case reducer function
 export const { showWeather } = weatherShowerSlice.actions

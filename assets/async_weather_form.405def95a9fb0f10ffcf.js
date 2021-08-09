@@ -1,0 +1,13 @@
+(self["__LOADABLE_LOADED_CHUNKS__"] = self["__LOADABLE_LOADED_CHUNKS__"] || []).push([["async_weather_form"],{
+
+/***/ "./src/client/asyncComponents/WeatherForm/WeatherForm.js":
+/*!***************************************************************!*\
+  !*** ./src/client/asyncComponents/WeatherForm/WeatherForm.js ***!
+  \***************************************************************/
+/***/ (() => {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\Sara\\Desktop\\project-2021-d\\src\\client\\asyncComponents\\WeatherForm\\WeatherForm.js: Unexpected reserved word 'let'. (7:4)\n\n\u001b[0m \u001b[90m  5 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  6 |\u001b[39m \u001b[36mconst\u001b[39m \u001b[33mWeatherForm\u001b[39m \u001b[33m=\u001b[39m ({provinces}) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m     \u001b[36mlet\u001b[39m \u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  8 |\u001b[39m     \u001b[36mconst\u001b[39m dispatch \u001b[33m=\u001b[39m useDispatch()\u001b[0m\n\u001b[0m \u001b[90m  9 |\u001b[39m     \u001b[36mconst\u001b[39m [optionValue\u001b[33m,\u001b[39m setOptionValue] \u001b[33m=\u001b[39m useState(undefined)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 10 |\u001b[39m\u001b[0m\n    at Object._raise (C:\\Users\\Sara\\Desktop\\project-2021-d\\node_modules\\@babel\\parser\\lib\\index.js:816:17)\n    at Object.raiseWithData (C:\\Users\\Sara\\Desktop\\project-2021-d\\node_modules\\@babel\\parser\\lib\\index.js:809:17)\n    at Object.raise (C:\\Users\\Sara\\Desktop\\project-2021-d\\node_modules\\@babel\\parser\\lib\\index.js:770:17)\n    at Object.checkReservedWord (C:\\Users\\Sara\\Desktop\\project-2021-d\\node_modules\\@babel\\parser\\lib\\index.js:12158:12)\n    at Object.parseIdentifierName (C:\\Users\\Sara\\Desktop\\project-2021-d\\node_modules\\@babel\\parser\\lib\\index.js:12112:12)\n    at Object.parseIdentifier (C:\\Users\\Sara\\Desktop\\project-2021-d\\node_modules\\@babel\\parser\\lib\\index.js:12084:23)\n    at Object.parseExprAtom (C:\\Users\\Sara\\Desktop\\project-2021-d\\node_modules\\@babel\\parser\\lib\\index.js:11140:27)\n    at Object.parseExprAtom (C:\\Users\\Sara\\Desktop\\project-2021-d\\node_modules\\@babel\\parser\\lib\\index.js:5241:20)\n    at Object.parseExprSubscripts (C:\\Users\\Sara\\Desktop\\project-2021-d\\node_modules\\@babel\\parser\\lib\\index.js:10881:23)\n    at Object.parseUpdate (C:\\Users\\Sara\\Desktop\\project-2021-d\\node_modules\\@babel\\parser\\lib\\index.js:10861:21)");
+
+/***/ })
+
+}]);

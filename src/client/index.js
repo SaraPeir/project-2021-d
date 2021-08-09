@@ -14,22 +14,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
-console.log('client', client)
-
-client
-  .query({
-    query: gql`
-      query getTasks {
-          tasks {
-            _id
-            isDone
-            task
-          }
-      }
-    `
-  })
-  .then(result => console.log(result));
-
 export default loadableReady(() => {
     hydrate(
       <ApolloProvider client={client}>
