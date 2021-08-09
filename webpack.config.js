@@ -1,5 +1,4 @@
 var path = require('path')
-var webpack = require('webpack')
 var nodeExternals = require('webpack-node-externals')
 const {LoaderOptionsPlugin} = require('webpack')
 const miniCssExtractPlugin = require('mini-css-extract-plugin');
