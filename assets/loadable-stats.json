@@ -1,10 +1,10 @@
 {
-  "hash": "f562a367ae0a32aa0f35",
+  "hash": "1e9bf909d266be57017f",
   "publicPath": "/",
   "outputPath": "C:\\Users\\Sara\\Desktop\\project-2021-d\\assets",
   "assetsByChunkName": {
     "main": [
-      "main.cbac2956b4c9abd4bd11.js"
+      "main.e423a8dcdd7de3aeaf80.js"
     ],
     "manifest": [
       "manifest.09b2e6067c5e635f2f9c.js"
@@ -27,7 +27,7 @@
       "type": "assets by status",
       "cached": true,
       "filteredChildren": 6,
-      "size": 1886154
+      "size": 1886283
     }
   ],
   "namedChunkGroups": {
@@ -46,7 +46,7 @@
           "name": "node_vendors.beaa44ea055c45e08821.js"
         },
         {
-          "name": "main.cbac2956b4c9abd4bd11.js"
+          "name": "main.e423a8dcdd7de3aeaf80.js"
         }
       ],
       "filteredAssets": 0,
@@ -121,7 +121,7 @@
     {
       "id": "main",
       "files": [
-        "main.cbac2956b4c9abd4bd11.js"
+        "main.e423a8dcdd7de3aeaf80.js"
       ]
     },
     {

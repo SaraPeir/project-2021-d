@@ -22,9 +22,9 @@ const Global = ({provinces}) => {
     const WeatherContent = () => {
         return(
             <React.Fragment>
-                <WeatherForm 
-                    provinces={provinces} 
-                 /> 
+                    <WeatherForm 
+                        provinces={provinces} 
+                    /> 
                 {weather()} 
             </React.Fragment>
         )
@@ -40,14 +40,19 @@ const Global = ({provinces}) => {
 
     return(
         <React.Fragment>
-            <Accordion
+           {
+               // if provinces from server are not available, the
+               // whole Accordion component is not displayed
+               provinces.length && 
+               <Accordion
                 label={'weather-label'} 
-                parentId={'weather-parend'} 
+                parentId={'weather-parent'} 
                 target={'weather-target'} 
                 n={1} 
                 buttonContents={buttonContents} 
                 bodyContents={bodyContents} 
-            />
+            /> || null
+           } 
             <Tasks />
         </React.Fragment>
     )
