@@ -53,7 +53,7 @@ export default {
         body
       })
       const newTask = await taskClass.save()
-      return { ...newTask._doc, _id: newTask.id }
+      return { ...newTask._doc, _id: newTask.id } // _doc is a metadata
     } catch (error) {
       throw error
     }

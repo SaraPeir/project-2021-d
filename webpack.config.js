@@ -8,10 +8,10 @@ const Dotenv = require('dotenv-webpack');
 
 const devMode = process.env.NODE_ENV !== 'production';
 
-const loaderOptionPlugin = new LoaderOptionsPlugin({
-  minimize: false,
-  debug: true,
-})
+// const loaderOptionPlugin = new LoaderOptionsPlugin({
+//   minimize: false,
+//   debug: true,
+// })
 
 // To visualize the webpack output bundle files 
 // in terms of interactive zoomable treemap
@@ -45,7 +45,7 @@ const browserConfig = {
       },
     ]
   },
-  plugins: [new LoadablePlugin(), loaderOptionPlugin, bundleAnalyzerPlugin, new Dotenv()],
+  plugins: [new LoadablePlugin(), bundleAnalyzerPlugin, new Dotenv()],
   optimization: {
     // optimization.moduleIds = "deterministic" to avoid changes related to resolving order by default 
     // (https://webpack.js.org/guides/caching/)

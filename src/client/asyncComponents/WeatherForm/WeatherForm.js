@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { showWeather } from '../../../redux/slices/weatherShower'
 import {fetchWeatherThunk} from '../../../redux/slices/fetchWeather'
 import { useDispatch } from 'react-redux'
+import ModuleViewed from '../../components/ModuleViewed';
 
 const WeatherForm = ({provinces}) => {
     let options = [];
@@ -16,7 +17,11 @@ const WeatherForm = ({provinces}) => {
 
     for (let i = 1; i <= provinces.length; i++) {
         options.push(
-            <option key={i} value={provinces[i-1].CAPITAL_PROVINCIA}>{provinces[i-1].CAPITAL_PROVINCIA}</option>
+            <ModuleViewed>
+                <option key={i} value={provinces[i-1].CAPITAL_PROVINCIA}>
+                    {provinces[i-1].CAPITAL_PROVINCIA}
+                </option>
+            </ModuleViewed>
         );
     }
     return (

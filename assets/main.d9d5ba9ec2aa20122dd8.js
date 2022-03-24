@@ -63,7 +63,7 @@ var Global = function Global(_ref) {
     return state.weatherShower.value;
   });
 
-  var weather = function weather() {
+  var renderWeather = function renderWeather() {
     // Weather component bundle is loaded only when isWeatherDisplayed is true (verify it in Chrome Network)
     if (isWeatherDisplayed) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_asyncComponents_Weather__WEBPACK_IMPORTED_MODULE_4__.default, null);
@@ -75,19 +75,21 @@ var Global = function Global(_ref) {
   var WeatherContent = function WeatherContent() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_asyncComponents_WeatherForm__WEBPACK_IMPORTED_MODULE_3__.default, {
       provinces: provinces
-    }), weather());
+    }), renderWeather());
   };
 
   var buttonContents = ['El tiempo en España'];
   var bodyContents = [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(WeatherContent, null)];
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Accordion__WEBPACK_IMPORTED_MODULE_2__.default, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, // if provinces from server are not available, the
+  // whole Accordion component is not displayed
+  provinces.length && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Accordion__WEBPACK_IMPORTED_MODULE_2__.default, {
     label: 'weather-label',
-    parentId: 'weather-parend',
+    parentId: 'weather-parent',
     target: 'weather-target',
     n: 1,
     buttonContents: buttonContents,
     bodyContents: bodyContents
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Tasks__WEBPACK_IMPORTED_MODULE_1__.default, null));
+  }) || null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Tasks__WEBPACK_IMPORTED_MODULE_1__.default, null));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Global);
@@ -672,4 +674,4 @@ __webpack_require__.r(__webpack_exports__);
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
-//# sourceMappingURL=main.5dcf6c6f02f712956c0f.js.map
+//# sourceMappingURL=main.d9d5ba9ec2aa20122dd8.js.map

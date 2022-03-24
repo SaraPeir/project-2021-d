@@ -11,7 +11,7 @@ const Global = ({provinces}) => {
         return state.weatherShower.value
     })
 
-    const weather = () => {
+    const renderWeather = () => {
         // Weather component bundle is loaded only when isWeatherDisplayed is true (verify it in Chrome Network)
         if(isWeatherDisplayed) {
             return <Weather />
@@ -25,7 +25,7 @@ const Global = ({provinces}) => {
                     <WeatherForm 
                         provinces={provinces} 
                     /> 
-                {weather()} 
+                {renderWeather()} 
             </React.Fragment>
         )
     }

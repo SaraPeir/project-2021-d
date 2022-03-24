@@ -13,6 +13,8 @@ import cors from 'cors'
 
 const fetch = require('node-fetch');
 const app = express(); 
+
+// allows the use of process variables, stored in .env file
 require('dotenv').config()
 
 app.use(express.static('assets'));
@@ -26,7 +28,8 @@ const user = process.env.DB_USER
 const uri = `mongodb+srv://${user}:${psw}@cluster0.r4gtu.mongodb.net/${databaseName}?retryWrites=true&w=majority`;
 const options = {useNewUrlParser: true, useUnifiedTopology: true}
 
-mongoose.connect(uri, options)
+mongoose
+.connect(uri, options)
 .then(() => app.listen(4000, console.log('Server is running for GRAPHQL')))
 .catch(error => { throw error })
 

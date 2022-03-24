@@ -49,6 +49,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _asyncComponents_WeatherForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./asyncComponents/WeatherForm */ 1244);
 /* harmony import */ var _asyncComponents_Weather__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./asyncComponents/Weather */ 2716);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ 5514);
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../ModuleViewed/ModuleViewed'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+
 
 
 
@@ -63,7 +65,7 @@ var Global = function Global(_ref) {
     return state.weatherShower.value;
   });
 
-  var weather = function weather() {
+  var renderWeather = function renderWeather() {
     // Weather component bundle is loaded only when isWeatherDisplayed is true (verify it in Chrome Network)
     if (isWeatherDisplayed) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_asyncComponents_Weather__WEBPACK_IMPORTED_MODULE_4__.default, null);
@@ -75,19 +77,21 @@ var Global = function Global(_ref) {
   var WeatherContent = function WeatherContent() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_asyncComponents_WeatherForm__WEBPACK_IMPORTED_MODULE_3__.default, {
       provinces: provinces
-    }), weather());
+    }), renderWeather());
   };
 
   var buttonContents = ['El tiempo en España'];
   var bodyContents = [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(WeatherContent, null)];
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, provinces.length && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Accordion__WEBPACK_IMPORTED_MODULE_2__.default, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, // if provinces from server are not available, the
+  // whole Accordion component is not displayed
+  provinces.length && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Accordion__WEBPACK_IMPORTED_MODULE_2__.default, {
     label: 'weather-label',
-    parentId: 'weather-parend',
+    parentId: 'weather-parent',
     target: 'weather-target',
     n: 1,
     buttonContents: buttonContents,
     bodyContents: bodyContents
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Tasks__WEBPACK_IMPORTED_MODULE_1__.default, null));
+  }) || null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Tasks__WEBPACK_IMPORTED_MODULE_1__.default, null));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Global);
@@ -672,4 +676,4 @@ __webpack_require__.r(__webpack_exports__);
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
-//# sourceMappingURL=main.cf0499e71a4292b93a29.js.map
+//# sourceMappingURL=main.38e0bd53bf2fbe1e17f9.js.map

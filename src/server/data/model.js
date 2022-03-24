@@ -20,7 +20,7 @@ const taskSchema = new Schema(
       required: false,
     },
   },
-  // { timestamps: true }
+  // { timestamps: true } // tells to mongoose to add a createdAt and updatedAt fields to the schema.
 )
 
 export default mongoose.model("Task", taskSchema, collectionName)
